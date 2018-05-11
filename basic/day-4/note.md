@@ -16,12 +16,12 @@
 
 3. background-repeat
 
-   | key                        | interpretation                     |
-   | :------------------------- | ---------------------------------- |
-   | repeat-x, repeat-y, repeat | 背景图重复， x 或者 y 表示单个方向 |
-   |no-repeat					   			  | 背景图像将仅显示一次 |
-   | space                      | 背景图像将尽可能重复而不被截断，可以留有空白 |
-   | round                      | 随着空间的增大或减小，重复的图像将伸缩 |
+| key                        | interpretation                     |
+| :------------------------- | ---------------------------------- |
+| repeat-x, repeat-y, repeat | 背景图重复， x 或者 y 表示单个方向 |
+|no-repeat					   			 | 背景图像将仅显示一次 |
+| space                      | 背景图像将尽可能重复而不被截断，可以留有空白 |
+| round                      | 随着空间的增大或减小，重复的图像将伸缩 |
 
 4. background-position
 

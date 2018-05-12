@@ -6,9 +6,7 @@
 
 1. background-color
 
-   color 我觉得没什么好记的，可选的值就是 #FFFFFF rgb(255,255,255)  or white, yellow 这种表示颜色的值。
-
-   CSS 的 color 属性好像都是这样，以后就直接略过了
+    背景颜色
 
 2. background-image
 
@@ -27,14 +25,14 @@
 
    定位背景图像， 可使用两种定位语法
 
-   1. 直接使用 top, bottom ... 
+   1. 直接使用 top, bottom ...
    2. 以百分比或像素定位，以左上角原点，也可以在 数值前面加方向作为参照方向
 
 ### 边框: border
 
 1. border-color
 
-   ......
+   边框颜色
 
 2. border-style
 
@@ -58,6 +56,29 @@
 ### 列表: list-style
 
 1. list-style-type
-2. list-style-image
 
-### 链接: a
+    更改列表元素 一般可以认为是 li 的 marker
+
+    1. 列表序号的 position
+
+      1. inside: 序号属于 li， 处于 li 之内
+      2. outsize: 默认的值 相反
+
+    2.列表序号的风格
+
+      1. 设为自定义图像 url(image-path)
+      2. 无序号 none
+      3. 预设 marker
+
+        1. circle 空心圆
+        2. disc 实心圆
+        3. decimal 数字， 从 1. 开始
+2. list-style-image 以自定义的 marker 图像 作为 li 的 marker
+
+
+### 关于链接: a
+
+1. a:link 未访问的链接
+2. a:visited 访问过的链接
+3. a:hover 鼠标光标停留的链接
+4. a:active  鼠标点击的时间段的链接

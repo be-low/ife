@@ -1,0 +1,24 @@
+body {
+    margin: 0 auto;
+}
+
+.resume {
+    height: 715px;
+}
+
+.aside {
+    width: 20%;
+    height: 100%;
+    float: left;
+    background: rgb(200, 200, 255);
+}
+
+.aside > h1 {
+    text-align: center;
+}
+
+.content {
+    float: left;
+    margin-left: 2em;
+    /*background: rgb(233, 233, 255);*/
+}

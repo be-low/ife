@@ -1,0 +1,48 @@
+.header {
+    background: #777777;
+    padding-left: 1em;
+}
+
+.header > h1 {
+    color: #ffffff;
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 3em;
+    margin: 0;
+}
+
+.content {
+    border-right: #DDDDDD 2px ridge;
+}
+
+.content, .row, .col-1, .col-2, h3 {
+    display: inline-block;
+}
+
+.row {
+    height: 100px;
+    width: 100%;
+    border-bottom: #DDDDDD 2px ridge;
+}
+
+.col-1 {
+    background: #DDDDDD;
+    width: 8em;
+    height: 100%;
+    text-align: center;
+}
+
+.col-1 > h3 {
+    margin: 0 auto;
+    line-height: 100px;
+}
+
+.col-2 {
+    height: 100%;
+}
+
+.col-2 > dd, dt {
+    display: inline-block;
+    margin-left: 0.5em;
+}
+

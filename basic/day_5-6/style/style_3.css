@@ -20,7 +20,7 @@
 }
 
 .row {
-    height: 100px;
+    min-height: 100px;
     width: 100%;
     border-bottom: #DDDDDD 2px ridge;
 }
@@ -38,7 +38,10 @@
 }
 
 .col-2 {
-    height: 100%;
+
+    margin-top: 0.5em;
+    height: auto;
+    vertical-align: top;
 }
 
 .col-2 > dd, dt {

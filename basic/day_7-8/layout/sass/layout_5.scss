@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container div {
+  height: 200px;
+}
+
+.left, .center {
+  width: 200px;
+}
+
+.left {
+  background-color: skyblue;
+}
+
+.center {
+  background-color: aqua;
+}
+
+.right {
+  background-color: #E6F0FE;
+}
+
+.float {
+  .container {
+    .left, .center {
+      float: left;
+    }
+    .right {
+      margin-left: 400px;
+      padding-left: 10px;
+    }
+  }
+}
+
+.position {
+  .container {
+    position: relative;
+    .left, .center {
+      position: absolute;
+      top: 0;
+    }
+    .left {
+      left: 0;
+    }
+    .center {
+      left: 200px;
+    }
+    .right {
+      margin-left: 400px;
+      padding-left: 10px;
+    }
+  }
+}
+
+.flex {
+  .container {
+    display: flex;
+    .left, .center {
+      flex: 0 200px;
+    }
+    .right {
+      flex: 1;
+    }
+  }
+}

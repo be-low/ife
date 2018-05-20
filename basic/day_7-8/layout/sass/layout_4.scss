@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+}
+
+div {
+  height: 200px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+}
+
+.center {
+  background-color: aqua;
+}
+
+.left, .right {
+  width: 200px;
+  background-color: deepskyblue;
+}
+
+.float {
+  .container {
+    overflow: hidden;
+    .center, .left, .right {
+      float: left;
+    }
+    .center {
+      width: 100%;
+      padding: 0 200px;
+    }
+    .left {
+      margin-left: -100%;
+    }
+    .right {
+      margin-left: -200px;
+    }
+  }
+}
+
+.position {
+  .container {
+    position: relative;
+    .left, .right {
+      position: absolute;
+      top: 0;
+    }
+    .center {
+      margin: 0 200px;
+      left: 200px;
+    }
+    .left {
+      left: 0;
+    }
+    .right {
+      right: 0;
+    }
+  }
+}
+
+.flex {
+  .container {
+    display: flex;
+    .left, .right {
+      flex: 0 200px;
+    }
+    .center {
+      flex: 1;
+    }
+    .left {
+
+    }
+    .right {
+
+    }
+  }
+}

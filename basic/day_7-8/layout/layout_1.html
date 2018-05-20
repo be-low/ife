@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TwoCols</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+
+        div {
+            border: #333333 solid 1px;
+            height: 400px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .float .left {
+            float: left;
+            width: 30%;
+        }
+
+        .float .right {
+            float: right;
+            width: 70%;
+        }
+
+        .posit {
+            position: relative;
+        }
+
+        .posit .left {
+            position: absolute;
+            width: 30%;
+        }
+
+        .posit .right {
+            position: absolute;
+            right: 0;
+            width: 70%;
+        }
+
+        .flex {
+            margin-top: 500px;
+        }
+
+        .flex-content {
+            display: flex;
+            border: none;
+        }
+
+        .flex .left {
+            flex: 3;
+        }
+
+        .flex .right {
+            flex: 7;
+        }
+
+    </style>
+</head>
+<body>
+<section class="float">
+    <h1> float 实现</h1>
+    <div class="col-1"></div>
+    <div class="col-2"></div>
+</section>
+<section class="posit">
+    <h1> position 实现</h1>
+    <div class="col-1"></div>
+    <div class="col-2"></div>
+</section>
+<section class="flex">
+    <h1> flex 实现</h1>
+    <div class="flex-content">
+        <div class="col-1"></div>
+        <div class="col-2"></div>
+    </div>
+</section>
+</body>
+</html>

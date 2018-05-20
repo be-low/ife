@@ -15,7 +15,7 @@
     border-right: #DDDDDD 2px ridge;
 }
 
-.content, .row, .col-1, .col-2, h3 {
+.content, .row, .left, .right, h3 {
     display: inline-block;
 }
 
@@ -25,26 +25,26 @@
     border-bottom: #DDDDDD 2px ridge;
 }
 
-.col-1 {
+.left {
     background: #DDDDDD;
     width: 8em;
     height: 100%;
     text-align: center;
 }
 
-.col-1 > h3 {
+.left > h3 {
     margin: 0 auto;
     line-height: 100px;
 }
 
-.col-2 {
+.right {
 
     margin-top: 0.5em;
     height: auto;
     vertical-align: top;
 }
 
-.col-2 > dd, dt {
+.right > dd, dt {
     display: inline-block;
     margin-left: 0.5em;
 }

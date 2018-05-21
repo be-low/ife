@@ -76,72 +76,66 @@ header {
   .nav {
     position: relative;
     height: auto;
-    //border-bottom: #cccccc solid 1px;
-    .wrapper {
-      ul {
-        margin: 20px auto auto 0;
-        padding-left: 0;
-        display: table;
-        li {
-          background-color: #eeeeee;
-          padding: 20px 30px 16px 30px;
-          border: #cccccc solid 1px;
-          display: table-cell;
-          border-bottom: none;
-          border-radius: 20px 20px 0 0;
-          a {
-            text-decoration: none;
-            color: black;
-            font-size: 14px;
-          }
-        }
-        li:nth-of-type(1) {
-          background-color: white;
+    display: flex;
+    .left, .right {
+      flex: 1;
+      border-bottom: #cccccc solid 1px;
+    }
+    ul {
+      flex: 0 960px;
+      display: flex;
+      margin: 20px auto auto 0;
+      padding-left: 0;
+      li {
+        flex: 0 106px;
+        background-color: #eeeeee;
+        padding: 20px 30px 16px 30px;
+        border: #cccccc solid 1px;
+        border-radius: 20px 20px 0 0;
+        font-size: 14px;
+        text-align: center;
+        a {
+          text-decoration: none;
+          color: black;
+          font-size: 14px;
         }
       }
-    }
-    hr {
-      height: 1px;
-      border: none;
-      border-top: #cccccc solid 1px;
-      margin: -1px auto 0 auto;
+      li:nth-of-type(1) {
+        background-color: white;
+        border-bottom: none;
+      }
+      li:nth-of-type(4) {
+        flex: 1;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        background-color: white;
+      }
     }
   }
-  border-top: #cccccc solid 1px;
+
   .container {
-    width: 960px;
+    max-width: 960px;
     margin: 0 auto;
     .row {
       margin-top: 10px;
+      display: flex;
       div {
-        float: left;
         box-sizing: border-box;
         border: #cccccc solid 1px;
         margin-right: 12px;
         padding: 80px;
         height: 175px;
         text-align: center;
+        flex: 1;
       }
-    }
-    .row:after {
-      content: " ";
-      display: table;
-      clear: both;
-    }
-    .row-1 div {
-      width: 306px;
-    }
-    .row-2 div {
-      width: 226px;
-    }
-    .row-3 div {
-      width: 306px;
     }
   }
 }
 
 footer {
   background-color: #666666;
+  color: white;
   height: 120px;
   text-align: center;
   span {

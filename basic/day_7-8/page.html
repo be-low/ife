@@ -6,51 +6,49 @@
     <title>day 7-8</title>
 </head>
 <body>
-<header>
+<header id="header">
     <div class="wrapper">
         <h1 class="logo">Logo</h1>
-        <ul>
+        <ul class="nav-row">
             <li><a href="#">Github</a></li>
             <li><a href="#">Register</a></li>
             <li><a href="#">Login</a></li>
         </ul>
     </div>
 </header>
-<div class="banner">
+<div class="banner-less">
     <div class="wrapper">
-        <ul>
+        <ul class="nav-row">
             <li>1</li>
-            <li>2</li>
+            <li class="active-item">2</li>
             <li>3</li>
             <li>4</li>
         </ul>
     </div>
-
 </div>
 <div class="main-container">
-    <div class="nav">
-        <div class="left"></div>
-        <ul>
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">PROFILE</a></li>
-            <li><a href="#">ABOUT</a></li>
-            <li></li>
-        </ul>
-        <div class="right"></div>
+    <div class="banner-main">
+        <nav class="nav-wrapper">
+            <ul class="nav-row">
+                <li class="active-item"><a href="#">HOME</a></li>
+                <li><a href="#">PROFILE</a></li>
+                <li><a href="#">ABOUT</a></li>
+            </ul>
+        </nav>
     </div>
     <div class="container">
-        <div class="row row-1">
+        <div class="row">
             <div><span>1</span></div>
             <div><span>2</span></div>
             <div><span>3</span></div>
         </div>
-        <div class="row row-2">
+        <div class="row">
             <div><span>4</span></div>
             <div><span>5</span></div>
             <div><span>6</span></div>
             <div><span>7</span></div>
         </div>
-        <div class="row row-3">
+        <div class="row">
             <div><span>8</span></div>
             <div><span>9</span></div>
             <div><span>10</span></div>
@@ -58,7 +56,7 @@
     </div>
 
 </div>
-<footer>
+<footer class="footer">
     <span>© &nbsp2018&nbspife.baidu.com</span>
 </footer>
 </body>

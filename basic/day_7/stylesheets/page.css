@@ -89,11 +89,11 @@ header {
   margin: 0 auto;
   display: flex;
   flex-direction: column; }
-  .main-container .container .row {
+  .main-container .container .flex-row {
     flex: 1;
     margin-bottom: 10px;
     display: flex; }
-    .main-container .container .row div {
+    .main-container .container .flex-row div {
       flex: 1;
       box-sizing: border-box;
       border: #cccccc solid 1px;

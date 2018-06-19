@@ -1,0 +1,75 @@
+ul {
+  padding-left: 0; }
+
+li {
+  border: #5e5c53 solid 1px; }
+
+* {
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse; }
+
+ul {
+  list-style: none; }
+
+h3 {
+  font-size: 32px; }
+
+h4 {
+  font-size: 24px; }
+
+h3, h4 {
+  font-weight: normal; }
+
+dd {
+  font-weight: bold;
+  margin: 0 0.5em; }
+
+dt {
+  margin-right: 2em; }
+
+dd, dt {
+  float: left; }
+
+.container {
+  max-width: 960px;
+  padding: 0;
+  margin: 0 auto; }
+
+.row {
+  display: flex; }
+
+.pt-1 {
+  padding-top: 1em; }
+
+.pl-1 {
+  padding-left: 1em; }
+
+.pb-1 {
+  padding-bottom: 1em; }
+
+.text-white {
+  color: white; }
+
+.clear-float:after {
+  content: "";
+  display: table;
+  visibility: hidden;
+  clear: both; }
+
+.header {
+  background-color: gray; }
+
+.row-header {
+  border-right: #5e5c53 solid 1px;
+  background-color: lightgrey; }
+  .row-header h4 {
+    padding: 1em;
+    line-height: 100%; }
+
+.container .row {
+  height: 6em; }
+  .container .row .row-content {
+    margin: 0.5em; }
+
+/*# sourceMappingURL=resume3.css.map */

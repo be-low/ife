@@ -133,11 +133,34 @@
     }
     .sub-label {
       margin: 45px 30px;
-      .img-focus {
-        background: url("../images/label5-img-focus.png"),
-        url("../images/label5-img-1.png");
+      .label-img {
+        width: 470px;
+        height: 340px;
+        float: left;
+        margin: 15px;
+        &:hover .focus-info {
+          display: block;
+        }
+      }
+      .label-img:nth-of-type(1) {
+        background: url("../images/label5-img-1.png");
+      }
+      .label-img:nth-of-type(2) {
+        background: url("../images/label5-img-2.png");
+      }
+      .label-img:nth-of-type(3) {
+        background: url("../images/label5-img-3.png");
+      }
+      .label-img:nth-of-type(4) {
+        background: url("../images/label5-img-4.png");
+      }
+      .focus-info {
+        width: 100%;
+        height: 100%;
+        display: none;
+        background: url("../images/label5-img-focus.png") !important;
         .sub-header {
-          margin-top: 110px;
+          padding-top: 110px;
           h5 {
             margin: 20px auto
           }
@@ -153,12 +176,6 @@
             margin: 15px;
           }
         }
-      }
-      .label-img {
-        width: 470px;
-        height: 340px;
-        float: left;
-        margin: 15px;
       }
     }
   }

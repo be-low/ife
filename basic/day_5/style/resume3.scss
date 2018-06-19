@@ -81,9 +81,11 @@ dd, dt {
 .row-header {
   border-right: #5e5c53 solid 1px;
   background-color: lightgrey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   h4 {
     padding: 1em;
-    line-height: 100%;
   }
 }
 

@@ -1,0 +1,107 @@
+.m-bg-dark {
+  background-color: #1d2531; }
+
+.m-bg-blue {
+  background-color: #222c3c; }
+
+.m-fixed-left {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0; }
+
+.m-fixed-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+
+.m-nav-bar-primary {
+  width: 100px;
+  z-index: 2001; }
+  .m-nav-bar-primary .m-icon-bar {
+    margin: 10px 10px; }
+    .m-nav-bar-primary .m-icon-bar .m-icon {
+      width: 60px;
+      height: 60px;
+      margin: 10px 10px; }
+  .m-nav-bar-primary .m-icon-bar-sm {
+    margin: 12px 18px; }
+    .m-nav-bar-primary .m-icon-bar-sm .m-icon-sm {
+      width: 16px;
+      height: 16px;
+      margin: 8px; }
+
+.m-color-blue {
+  background-color: #1c94ed;
+  color: white; }
+
+.m-color-red {
+  background-color: #e44226;
+  color: white; }
+
+.m-round-conner {
+  background-color: #2d3848;
+  height: 4px;
+  width: 190px; }
+
+.m-curRate {
+  background-color: #805ce6;
+  width: 18.125%; }
+
+.m-round-conner {
+  border-radius: 0.5em; }
+
+.m-dropdown-toggle::after {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: .255em;
+  vertical-align: .255em;
+  content: "";
+  border-top: .3em solid;
+  border-right: .3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent; }
+
+.m-nav-bar-second {
+  padding-left: 100px;
+  width: 350px;
+  z-index: 2000; }
+  .m-nav-bar-second .m-nav-bar-second-container {
+    margin: 30px 30px 0; }
+    .m-nav-bar-second .m-nav-bar-second-container .hr {
+      border-top: #2a3547 1px solid;
+      margin: 20px 0; }
+  .m-nav-bar-second .m-nav-list {
+    width: 100%; }
+  .m-nav-bar-second .m-nav-list-head {
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+    color: #5b6779; }
+    .m-nav-bar-second .m-nav-list-head .m-nav-list-head-icon {
+      width: 16px;
+      height: 16px; }
+  .m-nav-bar-second .m-nav-list-item {
+    font-size: 13px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+  .m-nav-bar-second .m-nav-list-item-icon {
+    max-width: 16px;
+    max-height: 16px;
+    margin-right: 12px; }
+  .m-nav-bar-second .m-nav-footer {
+    font-size: 13px;
+    position: absolute;
+    bottom: 20px; }
+    .m-nav-bar-second .m-nav-footer .m-nav-footer-title {
+      margin-bottom: 13px; }
+
+.m-main-container {
+  padding-left: 350px; }
+  .m-main-container .m-main-head {
+    font-size: 24px; }
+
+/*# sourceMappingURL=main.css.map */

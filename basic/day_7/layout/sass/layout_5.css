@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container div {
+  height: 200px;
+}
+
+.left, .center {
+  width: 200px;
+}
+
+.left {
+  background-color: skyblue;
+}
+
+.center {
+  background-color: aqua;
+}
+
+.right {
+  background-color: #E6F0FE;
+}
+
+.float .container .left, .float .container .center {
+  float: left;
+}
+
+.float .container .right {
+  margin-left: 400px;
+  padding-left: 10px;
+}
+
+.position .container {
+  position: relative;
+}
+
+.position .container .left, .position .container .center {
+  position: absolute;
+  top: 0;
+}
+
+.position .container .left {
+  left: 0;
+}
+
+.position .container .center {
+  left: 200px;
+}
+
+.position .container .right {
+  margin-left: 400px;
+  padding-left: 10px;
+}
+
+.flex .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex .container .left, .flex .container .center {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 200px;
+          flex: 0 200px;
+}
+
+.flex .container .right {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+/*# sourceMappingURL=layout_5.css.map */

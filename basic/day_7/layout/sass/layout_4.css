@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+}
+
+div {
+  height: 200px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+}
+
+.center {
+  background-color: aqua;
+}
+
+.left, .right {
+  width: 200px;
+  background-color: deepskyblue;
+}
+
+.float .container {
+  overflow: hidden;
+}
+
+.float .container .center, .float .container .left, .float .container .right {
+  float: left;
+}
+
+.float .container .center {
+  width: 100%;
+  padding: 0 200px;
+}
+
+.float .container .left {
+  margin-left: -100%;
+}
+
+.float .container .right {
+  margin-left: -200px;
+}
+
+.position .container {
+  position: relative;
+}
+
+.position .container .left, .position .container .right {
+  position: absolute;
+  top: 0;
+}
+
+.position .container .center {
+  margin: 0 200px;
+  left: 200px;
+}
+
+.position .container .left {
+  left: 0;
+}
+
+.position .container .right {
+  right: 0;
+}
+
+.flex .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex .container .left, .flex .container .right {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 200px;
+          flex: 0 200px;
+}
+
+.flex .container .center {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+/*# sourceMappingURL=layout_4.css.map */

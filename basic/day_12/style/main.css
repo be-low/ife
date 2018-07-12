@@ -1,28 +1,11 @@
-.m-bg-dark {
-  background-color: #1d2531;
-}
-
-.m-bg-blue {
-  background-color: #222c3c;
-}
-
-.m-fixed-left {
+.m-nav-bar-primary {
+  width: 100px;
+  z-index: 2001;
   position: fixed;
   left: 0;
   top: 0;
   bottom: 0;
-}
-
-.m-fixed-bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.m-nav-bar-primary {
-  width: 100px;
-  z-index: 2001;
+  background-color: #1d2531;
 }
 
 .m-nav-bar-primary .m-icon-bar {
@@ -36,6 +19,8 @@
 }
 
 .m-nav-bar-primary .m-icon-bar-sm {
+  position: absolute;
+  bottom: 0;
   margin: 12px 18px;
 }
 
@@ -45,49 +30,15 @@
   margin: 8px;
 }
 
-.m-color-blue {
-  background-color: #1c94ed;
-  color: white;
-}
-
-.m-color-red {
-  background-color: #e44226;
-  color: white;
-}
-
-.m-round-conner {
-  background-color: #2d3848;
-  height: 4px;
-  width: 190px;
-}
-
-.m-curRate {
-  background-color: #805ce6;
-  width: 18.125%;
-}
-
-.m-round-conner {
-  border-radius: 0.5em;
-}
-
-.m-arrow-down {
-  display: inline-block;
-  border: 10px solid transparent;
-  border-top-color: gray;
-  position: absolute;
-}
-
-.m-arrow-down::after {
-  content: "";
-  top: -5px;
-  border: 10px solid transparent;
-  border-top-color: #FFF;
-}
-
 .m-nav-bar-second {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
   padding-left: 100px;
   width: 350px;
   z-index: 2000;
+  background-color: #222c3c;
 }
 
 .m-nav-bar-second .m-nav-bar-second-container {
@@ -153,57 +104,226 @@
   margin: 26px 30px;
 }
 
-.m-message-header {
+.m-header {
   height: 80px;
 }
 
-.m-profile-bar {
+.m-header .m-profile {
+  position: fixed;
+  top: 0;
+  right: 0;
   width: 216px;
   height: 50px;
   margin: 14px;
 }
 
-.m-profile {
+.m-header .m-profile .m-profile-name {
+  color: #2399f1;
+}
+
+.m-header .m-profile .m-profile-role {
+  color: #cacaca;
+}
+
+.m-header .m-profile .m-profile-control {
   width: 150px;
   height: 50px;
 }
 
-.m-profile .m-profile-info {
+.m-header .m-profile .m-profile-control .m-profile-info {
   width: 80px;
   height: 40px;
-}
-
-.m-padding {
-  padding: 16px 30px;
 }
 
 .m-linkman {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 400px;
           flex: 0 0 400px;
+  border-right: solid 1px #e6e9ec;
 }
 
-.m-linkman .m-linkman-form .m-linkman-form-input {
-  width: 340px;
-  height: 34px;
+.m-linkman .m-linkman-search {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 70px;
+          flex: 0 0 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: solid 1px #e6e9ec;
+  margin: 0 -1px 0 0;
+}
+
+.m-linkman .m-linkman-search .m-linkman-search-group {
+  border: solid 1px #e6e9ec;
+  margin: auto 30px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 340px;
+          flex: 0 0 340px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 36px;
+}
+
+.m-linkman .m-linkman-search .m-linkman-search-group .m-linkman-form-control {
+  border: 0;
+  padding: 6px 16px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.m-linkman .m-linkman-search .m-linkman-search-group .m-linkman-form-slash {
+  width: 20px;
+  height: 20px;
+  margin: 8px 14px;
 }
 
 .m-linkman .m-linkman-item {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  padding-bottom: 16px;
+  height: 120px;
 }
 
-.m-message {
+.m-linkman .m-linkman-item .m-linkman-activate {
+  color: #2399f1;
+}
+
+.m-linkman .m-linkman-item .m-linkman-item-header-text {
+  margin-left: 66px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.m-linkman .m-linkman-item .m-linkman-item-status {
+  color: #99a5b6;
+}
+
+.m-linkman .m-linkman-item .m-linkman-item-text {
+  font-size: 13px;
+  line-height: 16px;
+  margin: 0;
+}
+
+.m-linkman .m-linkman-item .m-linkman-item-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.m-linkman .m-linkman-item .m-linkman-item-content .m-linkman-item-content-status {
+  margin: auto;
+}
+
+.m-linkman .m-linkman-item .m-linkman-title {
+  margin: 8px 0;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.m-linkman .m-linkman-item .m-linkman-title-second {
+  font-size: 14px;
+  color: #b5b5b5;
+  overflow: initial;
+}
+
+.m-message .m-status {
+  margin-left: -1px;
+}
+
+.m-message .m-status .m-status-name {
+  height: 20px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 120px;
+          flex: 0 0 120px;
+}
+
+.m-message .m-status .m-status-space {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 0px;
           flex: 1 0 0;
 }
 
-.m-border {
-  border: 1px solid;
+.m-message .m-status img {
+  text-align: center;
 }
 
-.m-border-e6e9ec {
-  border-color: #e6e9ec;
+.m-message .m-status .m-status-icon-container {
+  width: 32px;
+  height: 36px;
+  text-align: center;
+}
+
+.m-message .m-status .m-status-serial {
+  padding: 0 16px 0 24px;
+  border-left: 1px solid #e6e9ec;
+  font-size: 16px;
+  line-height: 36px;
+}
+
+.m-message .m-status .m-icon-bar-first {
+  margin: 0 24px;
+}
+
+.m-message .m-message-cur {
+  margin-top: 24px;
+}
+
+.m-message .m-message-cur .m-message-per .m-message-per-avatar {
+  margin-right: 20px;
+}
+
+.m-message .m-message-cur .m-message-per .m-message-per-text {
+  line-height: 20px;
+  font-size: 13px;
+}
+
+.m-message .m-message-cur .m-message-per .m-message-per-text .m-message-per-header {
+  margin: 6px 0;
+  font-size: 15px;
+}
+
+.m-message .m-message-cur .m-message-per .m-message-per-text .m-message-per-header .m-message-time {
+  margin-left: 10px;
+}
+
+.m-message .m-message-container {
+  margin: 0 30px;
+}
+
+.m-message .m-message-block {
+  padding-bottom: 30px;
+}
+
+.m-message .m-message-block .m-message-block-new-header {
+  border-color: #a7d6f9;
+  color: #2399f1;
+}
+
+.m-message .m-message-block .m-message-block-header {
+  margin-bottom: 10px;
+}
+
+.m-message .m-message-block .m-message-block-header .m-message-block-header-time {
+  color: #7f8fa4;
+}
+
+.m-message .m-message-block .m-message-block-header .m-message-block-header-hr {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 0px;
+          flex: 1 0 0;
+  margin: 7px 0;
+}
+
+.m-message .m-message-block .m-message-block-header span {
+  font-size: 15px;
+  line-height: 15px;
+  padding: 0 14px;
 }
 /*# sourceMappingURL=main.css.map */

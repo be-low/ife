@@ -3,27 +3,31 @@
 
     <head>
         <link rel="stylesheet" href="../../style/bootstrap.min.css">
-        <link rel="stylesheet" href="./style/main.css">
+        <link rel="stylesheet" href="style/mod.css">
+        <link rel="stylesheet" href="style/main.css">
         <meta charset="UTF-8">
-        <title>day 12</title>
+        <title>a complex page</title>
     </head>
 
     <body>
-        <nav class="m-nav-bar-primary m-fixed-left m-bg-dark d-flex flex-column">
+        <nav class="m-nav-bar-primary d-flex flex-column">
             <div class="m-icon-bar d-flex flex-column">
                 <img class="m-icon" src="images/Item%201.png">
                 <img class="m-icon" src="images/Item%202.png">
                 <img class="m-icon" src="images/Item%203.png">
-                <img class="m-icon" src="images/Add%20App.png"> </div>
-            <nav class="m-icon-bar-sm  m-fixed-bottom">
+                <img class="m-icon" src="images/Add%20App.png">
+            </div>
+            <nav class="m-icon-bar-sm">
                 <img class="m-icon-sm float-left" src="images/Grid.png">
-                <img class="m-icon-sm float-left" src="images/Settings.png"> </nav>
+                <img class="m-icon-sm float-left" src="images/Settings.png">
+            </nav>
         </nav>
-        <nav class="m-nav-bar-second m-fixed-left m-bg-blue text-white">
+        <nav class="m-nav-bar-second text-white">
             <div class="m-nav-bar-second-container">
                 <div>
                     <h5 class="m-nav-list-head m-nav-list-item">Menu
-                        <img class="m-nav-list-head-icon" src="images/Settings.png"> </h5>
+                        <img class="m-nav-list-head-icon" src="images/Settings.png">
+                    </h5>
                     <ul class="m-nav-list list-unstyled">
                         <li class="m-nav-list-item">Overview
                             <span class="badge m-color-blue badge-pill"></span>
@@ -46,7 +50,8 @@
                 <div>
                     <h5 class="m-nav-list-head m-nav-list-item">
                         <span>Your Products</span>
-                        <img src="images/Settings.png"> </h5>
+                        <img src="images/Settings.png">
+                    </h5>
                     <ul class="m-nav-list list-unstyled">
                         <li class="m-nav-list-item justify-content-start">
                             <img class="m-nav-list-item-icon" src="images/Book%20of%20Wisdom.png"> Books
@@ -70,7 +75,8 @@
                 <div>
                     <h5 class="m-nav-list-head m-nav-list-item">
                         <span>Dashboard</span>
-                        <img src="images/Settings.png"> </h5>
+                        <img src="images/Settings.png">
+                    </h5>
                     <ul class="m-nav-list list-unstyled">
                         <li class="m-nav-list-item">
                             <span>Messages</span>
@@ -101,201 +107,271 @@
                 </div>
             </div>
         </nav>
-        <div class="m-main-container d-flex flex-column">
-            <header class="m-message-header d-flex">
-                <h3 class="m-main-head">Messages</h3>
-                <div class="m-profile-bar d-flex justify-content-between">
-                    <div class="m-profile d-flex justify-content-between">
+        <main class="m-main-container d-flex flex-column">
+            <header class="m-header d-flex m-padding">
+                <h3 class="m-header-title">Messages</h3>
+                <div class="m-profile d-flex justify-content-between">
+                    <div class="m-profile-control d-flex justify-content-between">
                         <img class="" src="images/Face.png">
                         <div class="m-profile-info">
-                            <span>Jordan J.</span>
-                            <span>Administrator</span>
+                            <span class="m-profile-name">Jordan J.</span>
+                            <span class="m-profile-role">Administrator</span>
                         </div>
                     </div>
-                    <div class=""></div>
+                    <div class="m-dropdown-menu"></div>
                 </div>
             </header>
             <div class="d-flex">
                 <div class="d-flex flex-column m-linkman">
-                    <header class="d-flex flex-column ">
-                        <div class="m-border m-border-e6e9ec">
-                            <form class="m-linkman-form m-padding">
-                                <input class="m-linkman-form-input m-border m-border-e6e9ec" type="text"> </form>
-                        </div>
-                    </header>
+                    <form class="m-linkman-search m-form-group">
+                        <label class="m-linkman-search-group">
+                            <input class="m-linkman-form-control" type="text" placeholder="Search">
+                            <img class="m-linkman-form-slash" src="images/Search-icon.png"> </label>
+                    </form>
                     <ul class="list-unstyled">
-                        <li class="m-linkman-item m-border m-border-e6e9ec m-padding">
-                            <div class="clearfix">
+                        <li class="m-linkman-item m-bb m-border-e6e9ec m-padding">
+                            <div class="m-linkman-item-header clearfix">
                                 <img class="float-left" src="images/Avatar%20photo1.png">
-                                <div class="ml-5">
-                                    <p>Bessie Berry</p>
-                                    <p>Twitter</p>
+                                <div class="m-linkman-item-header-text">
+                                    <div>
+                                        <p class="m-linkman-title m-linkman-activate">
+                                            <img src="images/Status.png"> Bessie Berry</p>
+                                        <p class="m-linkman-title m-linkman-title-second">Twitter</p>
+                                    </div>
+                                    <p class="m-linkman-item-status m-linkman-title">3m</p>
                                 </div>
                             </div>
-                            <p>I pay for the 4Mb/sec down, 512 Kb/sec up service from O2. In fact, it's relatively quick, and
-                                stable...</p>
+                            <div class="m-linkman-item-content">
+                                <p class="m-linkman-item-text">I pay for the 4Mb/sec down, 512 Kb/sec up service from O2. In fact, it's relatively quick,
+                                    and stable...</p>
+                                <span class="m-linkman-item-content-status badge badge-pill m-color-blue">4</span>
+                            </div>
                         </li>
-                        <li class="m-linkman-item m-border m-border-e6e9ec m-padding">
-                            <div class="clearfix">
+                        <li class="m-linkman-item m-bb m-border-e6e9ec m-padding">
+                            <div class="m-linkman-item-header clearfix">
                                 <img class="float-left" src="images/Avatar%20photo2.png">
-                                <div class="ml-5">
-                                    <p>Victor Weber</p>
-                                    <p>Adobe</p>
+                                <div class="m-linkman-item-header-text">
+                                    <div>
+                                        <p class="m-linkman-title">Victor Weber</p>
+                                        <p class="m-linkman-title m-linkman-title-second">Adobe</p>
+                                    </div>
+                                    <p class="m-linkman-item-status m-linkman-title">8m</p>
                                 </div>
                             </div>
-                            <p>I shared this on my fb wall a few months back, and I thought I'd share it here again because
+                            <p class="m-linkman-item-text">I shared this on my fb wall a few months back, and I thought I'd share it here again because
                                 it's such a great...</p>
                         </li>
-                        <li class="m-linkman-item m-border m-border-e6e9ec m-padding">
-                            <div class="clearfix">
+                        <li class="m-linkman-item m-bb m-border-e6e9ec m-padding">
+                            <div class="m-linkman-item-header clearfix">
                                 <img class="float-left" src="images/Avatar%20photo3.png">
-                                <div class="ml-5">
-                                    <p>Dustin Benson</p>
-                                    <p>Facebook</p>
+                                <div class="m-linkman-item-header-text">
+                                    <div>
+                                        <p class="m-linkman-title">Dustin Benson</p>
+                                        <p class="m-linkman-title m-linkman-title-second">Facebook</p>
+                                    </div>
+                                    <p class="m-linkman-item-status m-linkman-title">Yesterday</p>
                                 </div>
                             </div>
-                            <p>If there is anyone who needs an invitation please add yourself in the comments of this post!</p>
+                            <p class="m-linkman-item-text">If there is anyone who needs an invitation please add yourself in the comments of this post!</p>
                         </li>
-                        <li class="m-linkman-item m-border m-border-e6e9ec m-padding">
-                            <div class="clearfix">
+                        <li class="m-linkman-item m-bb m-border-e6e9ec m-padding">
+                            <div class="m-linkman-item-header clearfix">
                                 <img class="float-left" src="images/Avatar%20photo4.png">
-                                <div class="ml-5">
-                                    <p>Jack Mason</p>
-                                    <p>Yahoo</p>
+                                <div class="m-linkman-item-header-text">
+                                    <div>
+                                        <p class="m-linkman-title">Jack Mason</p>
+                                        <p class="m-linkman-title m-linkman-title-second">Yahoo</p>
+                                    </div>
+                                    <p class="m-linkman-item-status m-linkman-title">Yesterday</p>
                                 </div>
                             </div>
-                            <p>BruteDC is a peer-to-peer movie+tv series sharing and downloading platform which works on intranet
+                            <p class="m-linkman-item-text">BruteDC is a peer-to-peer movie+tv series sharing and downloading platform which works on intranet
                                 inside...</p>
                         </li>
-                        <li class="m-linkman-item m-border m-border-e6e9ec m-padding">
-                            <div class="clearfix">
+                        <li class="m-linkman-item m-bb m-border-e6e9ec m-padding">
+                            <div class="m-linkman-item-header clearfix">
                                 <img class="float-left" src="images/Avatar%20photo5.png">
-                                <div class="ml-5">
-                                    <p>Stephen Shelton</p>
-                                    <p>Snapchat</p>
+                                <div class="m-linkman-item-header-text">
+                                    <div>
+                                        <p class="m-linkman-title">Stephen Shelton</p>
+                                        <p class="m-linkman-title m-linkman-title-second">Snapchat</p>
+                                    </div>
+                                    <p class="m-linkman-item-status m-linkman-title">13 Jun</p>
                                 </div>
                             </div>
-                            <p>Yes, p2p traffic is often filtered (QoSed). Although i do use BT on O2 wires, and in good days
+                            <p class="m-linkman-item-text">Yes, p2p traffic is often filtered (QoSed). Although i do use BT on O2 wires, and in good days
                                 dl speed...</p>
                         </li>
-                        <li class="m-linkman-item m-border m-border-e6e9ec m-padding">
-                            <div class="clearfix">
+                        <li class="m-linkman-item m-bb m-border-e6e9ec m-padding">
+                            <div class="m-linkman-item-header clearfix">
                                 <img class="float-left" src="images/Avatar%20photo6.png">
-                                <div class="ml-5">
-                                    <p>Sally Willis</p>
-                                    <p>Twitter</p>
+                                <div class="m-linkman-item-header-text">
+                                    <div>
+                                        <p class="m-linkman-title">Sally Willis</p>
+                                        <p class="m-linkman-title m-linkman-title-second">Twitter</p>
+                                    </div>
+                                    <p class="m-linkman-item-status m-linkman-title">12 Jun</p>
                                 </div>
                             </div>
-                            <p>Yes, it's O2: 'internet extreme', which is no longer offered..</p>
+                            <p class="m-linkman-item-text">Yes, it's O2: 'internet extreme', which is no longer offered..</p>
                         </li>
-                        <li class="m-linkman-item m-border m-border-e6e9ec m-padding">
-                            <div class="clearfix">
+                        <li class="m-linkman-item m-bb m-border-e6e9ec m-padding">
+                            <div class="m-linkman-item-header clearfix">
                                 <img class="float-left" src="images/Avatar%20photo7.png">
-                                <div class="ml-5">
-                                    <p>Robert Patton</p>
-                                    <p>A Team</p>
+                                <div class="m-linkman-item-header-text">
+                                    <div>
+                                        <p class="m-linkman-title">Robert Patton</p>
+                                        <p class="m-linkman-title m-linkman-title-second">A Team</p>
+                                    </div>
+                                    <p class="m-linkman-item-status m-linkman-title">9 Jun</p>
                                 </div>
                             </div>
-                            <p>I change my service from this 4Mb plan to their much cheaper 8Mb plan, my speed will dramatically
+                            <p class="m-linkman-item-text">I change my service from this 4Mb plan to their much cheaper 8Mb plan, my speed will dramatically
                                 decrease.</p>
                         </li>
                     </ul>
                 </div>
                 <div class="d-flex flex-column m-message">
-                    <header class="d-flex flex-column">
-                        <div class="d-flex m-border m-border-e6e9ec m-padding">
-                            <span>Bessie Berry</span>
-                            <div>
-                                <img src="images/User%20icon.png">
-                                <img src="images/Upload%20icon.png">
-                                <img src="images/Trash%20icon.png"> </div>
-                            <span>1 of 28</span>
-                            <div>
-                                <img src="images/Arrow%20left.png">
-                                <img src="images/Arrow%20right.png"> </div>
+                    <header class="m-status d-flex m-border m-border-e6e9ec m-padding">
+                        <div class="m-status-name">Bessie Berry
+                            <img src="images/Status-Red.png">
+                        </div>
+                        <div class="m-status-space"></div>
+                        <div class="m-icon-bar-first d-flex">
+                            <div class="m-status-icon-container m-border m-border-e6e9ec">
+                                <img class="" src="images/User%20icon.png">
+                            </div>
+                            <div class="m-status-icon-container m-border m-border-e6e9ec">
+                                <img class="" src="images/Upload%20icon.png">
+                            </div>
+                            <div class="m-status-icon-container m-border m-border-e6e9ec">
+                                <img class="" src="images/Trash%20icon.png">
+                            </div>
+                        </div>
+                        <span class="m-status-serial">1 of 28</span>
+                        <div class="m-icon-bar-second d-flex">
+                            <div class="m-status-icon-container m-border m-border-e6e9ec">
+                                <img class="" src="images/Arrow%20left.png">
+                            </div>
+                            <div class="m-status-icon-container m-border m-border-e6e9ec">
+                                <img class="" src="images/Arrow%20right.png">
+                            </div>
                         </div>
                     </header>
-                    <div>
-                        <div>
-                            <div>
-                                <img class="float-left" src="images/AvatarB.png">
-                                <div class="ml-5">
-                                    <div>
-                                        <span>Bessie Berry</span>
-                                        <span>8:31 AM</span>
+                    <div class="m-message-cur">
+                        <div class="m-message-block">
+                            <div class="m-message-container">
+                                <div class="m-message-per d-flex">
+                                    <div class="m-message-per-avatar">
+                                        <img class="" src="images/AvatarB.png">
                                     </div>
-                                    <p>Hi guys Ive got the O2 package and have really slow internet. A speed check online said
-                                        i can get 3mbps but it seems more like 0.5 these days, just freezing and taking ages
-                                        to open pages and open audio files for example. I have decided to switch to the UPC
-                                        package which offers 10mbps but do you think i will get it?</p>
+                                    <div class="m-message-per-text">
+                                        <div class="m-message-per-header">
+                                            <span>Bessie Berry</span>
+                                            <span>8:31 AM</span>
+                                        </div>
+                                        <p>Hi guys Ive got the O2 package and have really slow internet. A speed check online
+                                            said i can get 3mbps but it seems more like 0.5 these days, just freezing and
+                                            taking ages to open pages and open audio files for example. I have decided to
+                                            switch to the UPC package which offers 10mbps but do you think i will get it?</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div>
-                                <img class="float-left" src="images/AvatarJ.png">
-                                <div class="ml-5">
-                                    <div>
-                                        <span>Jordan Jackson</span>
-                                        <span>8:31 AM</span>
+                                <div class="m-message-per d-flex">
+                                    <div class="m-message-per-avatar">
+                                        <img class="" src="images/AvatarJ.png">
                                     </div>
-                                    <p>I have internet for 9 month and nevere could benefit from the full capacity of 5Mbit/s
-                                        as it is filtered by O2 when it detect traffic on public p2p sharing in my situation
-                                        all my internet speed slows to 512Kbit/s. I never had 400KB/s on when downloading
-                                        from p2p public servers like torrent emule etc. I downoad with 500KB/s from private
-                                        trakers instead. So conlcusion O2 block trafic on p2p connections. I have made hundreds
-                                        of test in Italy and Sweden and Romania with the same file to doanload with the same
-                                        setting and same antivirus and just needed to open ports in firewall and forward
-                                        same ports and the speed was at full capacity in 1 minute. here in 9 month never
-                                        had this luck.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <img class="float-left" src="images/AvatarB.png">
-                                <div class="ml-5">
-                                    <div>
-                                        <span>Bessie Berry</span>
-                                        <span>8:31 AM</span>
+                                    <div class="m-message-per-text">
+                                        <div class="m-message-per-header">
+                                            <span>Jordan Jackson</span>
+                                            <span class="m-message-time">8:31 AM</span>
+                                        </div>
+                                        <p>I have internet for 9 month and nevere could benefit from the full capacity of 5Mbit/s
+                                            as it is filtered by O2 when it detect traffic on public p2p sharing in my situation
+                                            all my internet speed slows to 512Kbit/s. I never had 400KB/s on when downloading
+                                            from p2p public servers like torrent emule etc. I downoad with 500KB/s from private
+                                            trakers instead. So conlcusion O2 block trafic on p2p connections. I have made
+                                            hundreds of test in Italy and Sweden and Romania with the same file to doanload
+                                            with the same setting and same antivirus and just needed to open ports in firewall
+                                            and forward same ports and the speed was at full capacity in 1 minute. here in
+                                            9 month never had this luck.</p>
                                     </div>
-                                    <p>Funny comparison. so would the proper antivirus not slow down the internet as much or
-                                        do you mean a freebie doenst protect the computer from viruses?</p>
-                                </div>
-                            </div>
-                            <div>
-                                <img class="float-left" src="images/AvatarJ.png">
-                                <div class="ml-5">
-                                    <div>
-                                        <span>Jordan Jackson</span>
-                                        <span>8:31 AM</span>
-                                    </div>
-                                    <p>I pay for the 4Mb/sec down, 512 Kb/sec up service from O2, and haven't had any problems.
-                                        In fact, it's relatively quick, and stable. It's not perfect, but I really don't
-                                        have issues, as long as I keep track of what I'm doing on it. I max out at about
-                                        3 Mb/sec down, and 350 Kb/sec up. Probably because of a noisy telephone line, not
-                                        because I'm being throttled. When my uploads go over 25 KB/sec (note, bytes, not
-                                        bits), my download speed suffers. This is expected, as downloads require upload bandwidth
-                                        as well. </p>
                                 </div>
                             </div>
                         </div>
-                        <div>
-                            <div>
-                                <img class="float-left" src="images/AvatarB.png">
-                                <div class="ml-5">
-                                    <div>
-                                        <span>Bessie Berry</span>
-                                        <span>8:31 AM</span>
+                        <div class="m-message-block">
+                            <header class="m-message-block-header d-flex">
+                                <hr class="m-message-block-header-hr">
+                                <span class="m-message-block-header-time">Tuesday</span>
+                                <hr class="m-message-block-header-hr"> </header>
+                            <div class="m-message-container">
+                                <div class="m-message-per d-flex">
+                                    <div class="m-message-per-avatar">
+                                        <img class="" src="images/AvatarB.png">
                                     </div>
-                                    <p>I pay for the 4Mb/sec down, 512 Kb/sec up service from O2. In fact, it's relatively quick,
-                                        and stable. It's not perfect, but I really don't have issues, as long as I keep track
-                                        of what I'm doing on it. </p>
+                                    <div class="m-message-per-text">
+                                        <div class="m-message-per-header">
+                                            <span>Bessie Berry</span>
+                                            <span class="m-message-time">8:31 AM</span>
+                                        </div>
+                                        <p>Funny comparison. so would the proper antivirus not slow down the internet as much
+                                            or do you mean a freebie doenst protect the computer from viruses?</p>
+                                    </div>
+                                </div>
+                                <div class="m-message-per d-flex">
+                                    <div class="m-message-per-avatar">
+                                        <img class="" src="images/AvatarJ.png">
+                                    </div>
+                                    <div class="m-message-per-text">
+                                        <div class="m-message-per-header">
+                                            <span>Jordan Jackson</span>
+                                            <span class="m-message-time">8:31 AM</span>
+                                        </div>
+                                        <p>I pay for the 4Mb/sec down, 512 Kb/sec up service from O2, and haven't had any problems.
+                                            In fact, it's relatively quick, and stable. It's not perfect, but I really don't
+                                            have issues, as long as I keep track of what I'm doing on it. I max out at about
+                                            3 Mb/sec down, and 350 Kb/sec up. Probably because of a noisy telephone line,
+                                            not because I'm being throttled. When my uploads go over 25 KB/sec (note, bytes,
+                                            not bits), my download speed suffers. This is expected, as downloads require
+                                            upload bandwidth as well. </p>
+                                        <img src="images/Photo1.png">
+                                        <img src="images/Photo2.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-message-block">
+                            <header class="m-message-block-header m-message-block-new-header d-flex">
+                                <hr class="m-message-block-header-hr">
+                                <span class="">New Messages</span>
+                                <hr class="m-message-block-header-hr"> </header>
+                            <div class="m-message-container">
+                                <div class="m-message-per d-flex">
+                                    <div class="m-message-per-avatar">
+                                        <img class="" src="images/AvatarB.png">
+                                    </div>
+                                    <div class="m-message-per-text">
+                                        <div class="m-message-per-header">
+                                            <span>Bessie Berry</span>
+                                            <span class="m-message-time">8:31 AM</span>
+                                        </div>
+                                        <p>I pay for the 4Mb/sec down, 512 Kb/sec up service from O2. In fact, it's relatively
+                                            quick, and stable. It's not perfect, but I really don't have issues, as long
+                                            as I keep track of what I'm doing on it. </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <form class="m-form-group">
+                        <div class="m-input-group">
+                            <div class="m-input-group-prepend">
+                                <span class="m-input-group-text">+</span>
+                            </div>
+                            <input class="m-form-control" type="text" value="Well, kinda both :) but more of that second option, i`ve seen many systems infected and crawling with    |"> </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        </main>
     </body>
 
 </html>

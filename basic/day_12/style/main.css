@@ -326,4 +326,33 @@
   line-height: 15px;
   padding: 0 14px;
 }
+
+.m-message-per-img {
+  width: 156px;
+  height: 100px;
+  margin-right: 14px;
+}
+
+.m-message-per-img:nth-of-type(1) {
+  background-image: url("../images/Photo1.png");
+}
+
+.m-message-per-img:nth-of-type(2) {
+  background-image: url("../images/Photo2.png");
+}
+
+.m-message-per-img .m-focus {
+  display: none;
+  height: 100%;
+}
+
+.m-message-per-img .m-focus img {
+  margin: auto;
+}
+
+.m-message-per-img:hover .m-focus {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="stylesheet" href="../../style/bootstrap.min.css">
+        <meta charset="UTF-8">
+        <title>IFE ECMAScript</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <label class="input-group mt-5">
+                <input class="form-control" id="first-number" type="number" placeholder="第一个数字"> </label>
+            <label for="" class="input-group">
+                <input class="form-control" id="second-number" type="number" placeholder="第二个数字"> </label>
+            <div class="btn-group mt-3">
+                <button id="add-btn" class="btn btn-info">加</button>
+                <button id="minus-btn" class="btn btn-info">减</button>
+                <button id="times-btn" class="btn btn-info">乘</button>
+                <button id="divide-btn" class="btn btn-info">除</button>
+            </div>
+            <div class="mt-3">
+                <span>运算结果:</span>
+                <span id="result"></span>
+            </div>
+        </div>
+        <script>
+            //add
+            document.getElementById("add-btn").onclick = function () {
+                document.getElementById("result").innerHTML = parseFloat(document.getElementById("first-number").value) +
+                    parseFloat(document.getElementById("second-number").value);
+            }
+            //minus
+            document.getElementById("minus-btn").onclick = function () {
+                document.getElementById("result").innerHTML = parseFloat(document.getElementById("first-number").value) -
+                    parseFloat(document.getElementById("second-number").value);
+            }
+            //mul
+            document.getElementById("times-btn").onclick = function () {
+                document.getElementById("result").innerHTML = parseFloat(document.getElementById("first-number").value) *
+                    parseFloat(document.getElementById("second-number").value);
+            }
+            //divide
+            document.getElementById("divide-btn").onclick = function () {
+                document.getElementById("result").innerHTML = parseFloat(document.getElementById("first-number").value) /
+                    parseFloat(document.getElementById("second-number").value);
+            }
+        </script>
+    </body>
+
+</html>

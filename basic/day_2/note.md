@@ -1,20 +1,19 @@
 # 第二天
 
-
-### HTML是什么？
+## HTML是什么？
 
 HTML: 超文本标记语言(Hypertext Markup
 Language)是一种用于创建web页面和web应用程序的标准标记语言。和 CSS:
 层叠样式表(Cascading Style Sheets)，JavaScript，是万维网的三大基础技术。
 
-### HTML5是什么？
+## HTML5是什么？
 
 HTML5是HTML标准的第五个和当前主要版本。它于2014年10月由 w3c
 发布，旨在通过支持最新的多媒体来改进语言，
 同时保持人们易于阅读并且一致理解计算机和设备（如Web浏览器，解析器等。
 HTML5不仅包含HTML 4，还包含XHTML 1和DOM Level 2 HTML。
 
-### meta标签都用来做什么的？
+## meta标签都用来做什么的？
 
 元数据（metadata）是关于数据的信息。 meta 标签提供关于 HTML
 文档的元数据。元数据不会显示在页面上，但是对于机器是可读的。
@@ -24,7 +23,7 @@ HTML5不仅包含HTML 4，还包含XHTML 1和DOM Level 2 HTML。
 元数据可用于浏览器（如何显示内容或重新加载页面），搜索引擎（关键词），或其他
 web 服务
 
-### ol, ul, li, dl, dd, dt等这些标签都适合用在什么地方，举个例子
+## ol, ul, li, dl, dd, dt等这些标签都适合用在什么地方，举个例子
 
 ol、ul、li适用无描述的列表，例如：导航栏的选项
 

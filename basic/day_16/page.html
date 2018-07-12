@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../style/bootstrap.min.css">
+    <title>Resume with JS</title>
+</head>
+
+<body>
+<div class="container">
+    <header class="">
+        <h3 class="pl-1 text-white">简历</h3>
+    </header>
+    <div class="d-flex justify-content-center mt-5 mb-3">
+        <button id="btn-play" class="btn btn-primary col-4">来一起玩耍吧</button>
+    </div>
+    <h2 id="hello" class="text-center"></h2>
+    <ul class="content mt-3">
+        <li class="row justify-content-around">
+            <div class="">
+                <h4>基本信息</h4>
+            </div>
+            <div class="row-content">
+                <dd>姓名</dd>
+                <dt>张三</dt>
+                <dd>性别</dd>
+                <dt>男</dt>
+            </div>
+        </li>
+        <li class="row justify-content-around">
+            <div class="">
+                <h4>联系方式</h4>
+            </div>
+            <div class="">
+                <dd>手机</dd>
+                <dt>1231231234</dt>
+                <dd>Email</dd>
+                <dt>
+                    <a href="mailto:abc@xyz.com">abc@xyz.com</a>
+                </dt>
+            </div>
+        </li>
+        <li class="row justify-content-around">
+            <div class="">
+                <h4>能力描述</h4>
+            </div>
+            <div class="">
+                <div class="clear-float">
+                    <dd>技术能力</dd>
+                    <dt>熟练掌握*</dt>
+                </div>
+                <dd>综合能力</dd>
+                <dt>良好的沟通，主动积极，努力勤奋</dt>
+            </div>
+        </li>
+        <li class="row justify-content-around">
+            <div class="">
+                <h4>教育经历</h4>
+            </div>
+            <div class="">
+                <div class="clear-float">
+                    <dd>本科</dd>
+                    <dt>某大学</dt>
+                </div>
+                <dd>研究生</dd>
+                <dt>某学院</dt>
+            </div>
+        </li>
+        <li class="row justify-content-around">
+            <div class="">
+                <h4>项目经历</h4>
+            </div>
+            <div class="">
+                <div class="clear-float">
+                    <dd>某项目</dd>
+                    <dt>做了啥</dt>
+                </div>
+                <dd>某项目</dd>
+                <dt>做了啥</dt>
+            </div>
+        </li>
+    </ul>
+</div>
+<script>
+    document.getElementById("btn-play").onclick = function () {
+        var rows = document.getElementsByClassName("row");
+        for (var i = 0; i < rows.length; ++i) {
+            var classList = rows[i].classList;
+            if (classList.contains("justify-content-around")) {
+                classList.remove("justify-content-around");
+                classList.add("justify-content-between");
+            } else {
+                classList.add("justify-content-around");
+                classList.remove("justify-content-between");
+            }
+        }
+        var hello = document.getElementById("hello").innerHTML;
+        if (hello === "" || hello === "再见")
+            document.getElementById("hello").innerHTML = "你好啊，很高兴认识你！";
+        else if (hello === "你好啊，很高兴认识你！")
+            document.getElementById("hello").innerHTML = "再见";
+    }
+</script>
+</body>
+
+</html>

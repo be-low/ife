@@ -249,3 +249,25 @@
     }
   }
 }
+
+.m-message-per-img {
+  width: 156px;
+  height: 100px;
+  margin-right: 14px;
+  &:nth-of-type(1) {
+    background-image: url("../images/Photo1.png");
+  }
+  &:nth-of-type(2) {
+    background-image: url("../images/Photo2.png");
+  }
+  .m-focus {
+    display: none;
+    height: 100%;
+    img {
+      margin: auto;
+    }
+  }
+  &:hover .m-focus {
+    display: flex;
+  }
+}

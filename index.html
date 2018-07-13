@@ -44,38 +44,18 @@
             </section>
         </div>
         <script>
-            document.getElementById("btn-basic").onclick = function () {
-                sectionHidden();
-                navItemDeactive();
-                document.getElementById("btn-basic").classList.add("active");
-                document.getElementById("section-basic").classList.remove("d-none");
-            };
-            document.getElementById(id = "btn-mvvm").onclick = function () {
-                sectionHidden();
-                navItemDeactive();
-                document.getElementById("btn-mvvm").classList.add("active");
-                document.getElementById("section-mvvm").classList.remove("d-none");
-            };
-            document.getElementById("btn-css").onclick = function () {
-                sectionHidden();
-                navItemDeactive();
-                document.getElementById("btn-css").classList.add("active");
-                document.getElementById("section-css").classList.remove("d-none");
-            };
-
-            function sectionHidden() {
-                var sections = document.querySelectorAll("section");
-                sections.forEach(element => {
-                    element.classList.add("d-none");
-                });
-            }
-
-            function navItemDeactive() {
-                var items = document.querySelectorAll("button.nav-link");
-                items.forEach(element => {
-                    element.classList.remove("active");
-                });
-            }
+            document.querySelectorAll("button.nav-link").forEach(element => {
+                element.onclick = function () {
+                    document.querySelectorAll("section").forEach(element => {
+                        element.classList.add("d-none");
+                    });
+                    document.querySelectorAll("button.nav-link").forEach(element => {
+                        element.classList.remove("active");
+                    });
+                    this.classList.add("active");
+                    document.getElementById("section-" + this.id.split("-")[1]).classList.remove("d-none");
+                };
+            });
         </script>
     </body>
 

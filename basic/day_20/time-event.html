@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+        <button id="fade-btn">淡出</button>
+        <script>
+            document.getElementById("fade-btn").onclick = function () {
+                var start = new Date();
+                var style = document.getElementById('fade-obj').style;
+                if (style.opacity === "" || style.opacity === 1) {
+                    style.opacity = 1;
+                    var id = setInterval("document.getElementById('fade-obj').style.opacity -= 0.005;", 10);
+                    setTimeout("window.clearInterval(id);", 1000);
+                } else {
+                    style.opacity = 0;
+                    var id = setInterval("document.getElementById('fade-obj').style.opacity += 0.005;", 10);
+                    setTimeout("clearInterval(id);", 2000);
+                }
+            }
+        </script>
+    </body>
+
+</html>

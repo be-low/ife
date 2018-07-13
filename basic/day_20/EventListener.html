@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- <link rel="stylesheet" href="../../style/bootstrap.min.css"> -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <input id="name" type="text">
+        <button id="submit-btn">Submit</button>
+        <script>
+            function logPrint() {
+                console.log(document.getElementById("name").value);
+            }
+            document.getElementById("submit-btn").onclick = logPrint();
+            document.getElementById("name").onfocus = function () {
+                this.onkeydown = function (e) {
+                    // console.log(e.key);
+                    switch (e.key) {
+                        case "Escape":
+                            this.value = "";
+                            break;
+                        case "Enter":
+                            logPrint();
+                            break;
+                    }
+                };
+            };
+        </script>
+    </body>
+
+</html>

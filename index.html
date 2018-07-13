@@ -10,20 +10,20 @@
     <body>
         <div class="container">
             <nav>
-                <h1 class="mt-lg-5 mb-lg-5 text-center">在ife-2018学习前端</h1>
+                <h1 class="mt-lg-5 mb-lg-5 text-center">从ife-2018学习前端</h1>
                 <ul class="nav nav-tabs">
-                    <li class="nav-item ">
-                        <a class="nav-link active" href="#basic">零基础学院</a>
+                    <li class="nav-item">
+                        <button id="btn-basic" class="nav-link active">零基础学院</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">MVVM学院</a>
+                        <button id="btn-mvvm" class="nav-link">MVVM学院</button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">设计师学院</a>
+                        <button id="btn-css" class="nav-link">设计师学院 </button>
                     </li>
                 </ul>
             </nav>
-            <div id="basic" class="list-group mt-5">
+            <section id="section-basic" class="list-group mt-5">
                 <a class="list-group-item list-group-item-action" href="basic/day_1/page.html">Hello World 的 HTML 写法</a>
                 <a class="list-group-item list-group-item-action" href="basic/day_2/page.html">简单的简历</a>
                 <a class="list-group-item list-group-item-action" href="basic/day_3/page.html">有色彩的简历</a>
@@ -34,8 +34,49 @@
                 <a class="list-group-item list-group-item-action" href="basic/day_12/page.html">一个较复杂静态网页</a>
                 <a class="list-group-item list-group-item-action" href="basic/day_16/page.html">JS 牛刀小试</a>
                 <a class="list-group-item list-group-item-action" href="basic/day_17/print99Mul.html">练习一下 JS 基础语法</a>
-            </div>
+                <a class="list-group-item list-group-item-action" href="basic/day_19/FindTheDomByAdvancedSeletor.html">JS Query</a>
+            </section>
+            <section id="section-mvvm" class="list-group mt-5 d-none">
+                <a class="list-group-item list-group-item-action" href="#">未开始</a>
+            </section>
+            <section id="section-css" class="list-group mt-5 d-none">
+                <a class="list-group-item list-group-item-action" href="#">未开始</a>
+            </section>
         </div>
+        <script>
+            document.getElementById("btn-basic").onclick = function () {
+                sectionHidden();
+                navItemDeactive();
+                document.getElementById("btn-basic").classList.add("active");
+                document.getElementById("section-basic").classList.remove("d-none");
+            };
+            document.getElementById(id = "btn-mvvm").onclick = function () {
+                sectionHidden();
+                navItemDeactive();
+                document.getElementById("btn-mvvm").classList.add("active");
+                document.getElementById("section-mvvm").classList.remove("d-none");
+            };
+            document.getElementById("btn-css").onclick = function () {
+                sectionHidden();
+                navItemDeactive();
+                document.getElementById("btn-css").classList.add("active");
+                document.getElementById("section-css").classList.remove("d-none");
+            };
+
+            function sectionHidden() {
+                var sections = document.querySelectorAll("section");
+                sections.forEach(element => {
+                    element.classList.add("d-none");
+                });
+            }
+
+            function navItemDeactive() {
+                var items = document.querySelectorAll("button.nav-link");
+                items.forEach(element => {
+                    element.classList.remove("active");
+                });
+            }
+        </script>
     </body>
 
 </html>

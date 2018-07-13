@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>IFE ECMAScript</title>
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <div id="news-top" class="section">
+                <h3>Some title</h3>
+                <div class="content">
+                    <ul>
+                        <li>
+                            <span>HTML</span>
+                            <a href="">Some Link1</a>
+                        </li>
+                        <li>
+                            <span>JS</span>
+                            <a class="active" href="">Some Link2</a>
+                        </li>
+                        <li>
+                            <span>CSS</span>
+                            <a href="">Some Link3</a>
+                        </li>
+                        <li>
+                            <span>JS</span>
+                            <a href="">Some Link4</a>
+                        </li>
+                    </ul>
+                </div>
+                <img src="">
+                <p class="">Some Text</p>
+            </div>
+            <div id="news-normal" class="section">
+                <h3>Some title</h3>
+                <div class="content">
+                    <ul>
+                        <li>
+                            <span>HTML</span>
+                            <a href="">Some Link1</a>
+                        </li>
+                        <li>
+                            <span>HTML</span>
+                            <a href="">Some Link2</a>
+                        </li>
+                        <li>
+                            <span>JS</span>
+                            <a class="active" href="#">Some Link3</a>
+                        </li>
+                        <li>
+                            <span>CSS</span>
+                            <a href="">Some Link4</a>
+                        </li>
+                    </ul>
+                </div>
+                <img src="">
+                <p class="">Some Text</p>
+            </div>
+        </div>
+        <script>
+            function getAllListItem() {
+                // 返回页面中所有li标签
+                return document.querySelectorAll("li");
+            }
+
+            function findAllHtmlSpanInOneSection(sectionId) {
+                // 返回某个section下所有span中内容为HTML的span标签
+                var section = document.querySelector("#" + sectionId);
+                var allSpans = section.querySelectorAll("span");
+                var spans = [];
+                allSpans.forEach(element => {
+                    if (element.innerText === "HTML") spans.push(element);
+                });
+                return spans;
+            }
+            console.log("news-normal 内，所有span中内容为HTML的span标签");
+            console.log(findAllHtmlSpanInOneSection("news-normal"));
+
+            function findListItem(sectionId, spanCont) {
+                // 返回某个section下，所有包含span内容为spanCont的LI标签
+                var section = document.querySelector("#" + sectionId);
+                var allItems = section.querySelectorAll("li");
+                var items = [];
+                allItems.forEach(element => {
+                    if (element.querySelector("span").innerText === spanCont) items.push(element);
+                });
+                return items;
+            }
+            console.log("news-normal 内，所有所包含 span 内容为 JS 的 LI 标签");
+            console.log(findListItem("news-normal", "JS"));
+
+            function getActiveLinkContent(sectionId) {
+                // 返回某个section下，class为active的链接中包含的文字内容
+                var section = document.querySelector("#" + sectionId);
+                var links = section.querySelectorAll("a.active");
+                var content = [];
+                links.forEach(element => {
+                    content.push(element.innerText);
+                });
+                return content;
+            }
+            console.log("news-top 内，class为active的链接中包含的文字内容");
+            console.log(getActiveLinkContent("news-top"));
+        </script>
+    </body>
+
+</html>

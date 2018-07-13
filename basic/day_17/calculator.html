@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Calculator with Exception handle</title>
+    </head>
+
+    <body>
+        <input id="first-number" type="number" placeholder="第一个数字">
+        <input id="second-number" type="number" placeholder="第二个数字">
+        <button id="add-btn">加</button>
+        <button id="minus-btn">减</button>
+        <button id="times-btn">乘</button>
+        <button id="divide-btn">除</button>
+        <p id="result">运算结果</p>
+        <script>
+            document.getElementById("add-btn").onclick = function () {
+                var leftVar = document.getElementById("first-number").value;
+                var rightVar = document.getElementById("second-number").value;
+                if (isNumber(leftVar) && isNumber(rightVar)) {
+                    document.getElementById("result").innerHTML = parseFloat(leftVar) + parseFloat(rightVar);
+                } else {
+                    console.log(leftVar + " or " + rightVar + " is a not number!")
+                }
+            }
+            document.getElementById("minus-btn").onclick = function () {
+                var leftVar = document.getElementById("first-number").value;
+                var rightVar = document.getElementById("second-number").value;
+                if (isNumber(leftVar) && isNumber(rightVar)) {
+                    document.getElementById("result").innerHTML = parseFloat(leftVar) - parseFloat(rightVar);
+                } else {
+                    console.log(leftVar + " or " + rightVar + " is a not number!")
+                }
+            }
+            document.getElementById("times-btn").onclick = function () {
+                var leftVar = document.getElementById("first-number").value;
+                var rightVar = document.getElementById("second-number").value;
+                if (isNumber(leftVar) && isNumber(rightVar)) {
+                    document.getElementById("result").innerHTML = parseFloat(leftVar) * parseFloat(rightVar);
+                } else {
+                    console.log(leftVar + " or " + rightVar + " is a not number!")
+                }
+            }
+            document.getElementById("divide-btn").onclick = function () {
+                var leftVar = document.getElementById("first-number").value;
+                var rightVar = document.getElementById("second-number").value;
+                if (isNumber(leftVar) && isNumber(rightVar)) {
+                    if (parseFloat(rightVar) != 0) {
+                        document.getElementById("result").innerHTML = parseFloat(leftVar) / parseFloat(rightVar);
+                    } else {
+                        console.log("divide num can't be 0")
+                    }
+                } else {
+                    console.log(leftVar + " or " + rightVar + " is a not number!")
+                }
+            }
+
+            function isNumber(num) {
+                if (num != NaN && num != "") {
+                    return !isNaN(num);
+                }
+                return false;
+            }
+        </script>
+    </body>
+
+</html>

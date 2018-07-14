@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <link rel="stylesheet" href="../../style/bootstrap.min.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Sprites Erik</title>
+        <style>
+            .sprite {
+                background: url("./images/erik.jpg") no-repeat;
+                background-position: 0 0;
+                height: 480px;
+                width: 480px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <main class="container d-flex justify-content-center">
+            <div class="sprite"> </div>
+        </main>
+        <script>
+            var style = document.getElementsByClassName("sprite")[0].style;
+            //17 片，每片 100ms, 最大高度 8160px-480px
+            setInterval(function () {
+                var y = parseInt(style.backgroundPositionY);
+                if (y > -7680) {
+                    style.backgroundPositionY = (y - 480).toString() + "px";
+                } else {
+                    style.backgroundPositionY = 0;
+                }
+            }, 100);
+        </script>
+    </body>
+
+</html>

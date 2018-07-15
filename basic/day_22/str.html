@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <link rel="stylesheet" href="../../style//bootstrap.min.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div class="mt-5">
+            <div class="input-group">
+                <label>String A:
+                    <input id="radio-a" type="radio" checked="true" name="str-obj" value="a"> </label>
+                <textarea id="str-a" class="form-control"></textarea>
+            </div>
+            <div class="input-group mt-3">
+                <label>String B:
+                    <input id="radio-b" type="radio" name="str-obj" value="b"> </label>
+                <textarea id="str-b" class="form-control"></textarea>
+            </div>
+            <label>Num A：
+                <input id="num-a" type="number" value="0"> </label>
+            <label>Num B：
+                <input id="num-b" type="number" value="1"> </label>
+        </div>
+        <div>
+            <button>获取当前选中输入的内容长度</button>
+            <button>当前选中输入中的第3个字符</button>
+            <button>把两个输入框的文字连接在一起输出（concat）</button>
+            <button>输入B中的内容，在输入A的内容中第一次出现的位置（indexOf）</button>
+            <button>输入A中的内容，在输入B的内容中最后一次出现的位置（lastIndexOf）</button>
+            <button>使用slice获取选中输入框内容的部分内容，参数为num-a及num-b</button>
+            <button>当前选中输入框的行数</button>
+            <button>使用substr获取选中输入框内容的子字符串，参数为num-a及num-b</button>
+            <button>把所选输入框中的内容全部转为大写</button>
+            <button>把所选输入框中的内容全部转为小写</button>
+            <button>把所选输入框中内容的半角空格全部去除</button>
+            <button>把所选输入框中内容的a全部替换成另外一个输入框中的内容</button>
+        </div>
+        <p id="result" class="border border-primary mt-5" style="height: 100px;"></p>
+        <script src="./js/common.js"></script>
+        <script>
+            var result = document.getElementById("result");
+            var strA = document.getElementById("str-a");
+            var strB = document.getElementById("str-b");
+            var numA = document.getElementById("num-a");
+            var numB = document.getElementById("num-b");
+            var radioA = document.getElementById("radio-a");
+            var buttons = document.getElementsByTagName("button");
+
+            function selInput() {
+                return radioA.checked ? strA : strB;
+            }
+            buttons[0].onclick = function () {
+                result.innerHTML = selInput().value.length;
+            }
+            buttons[1].onclick = function () {
+                var str = radioA.checked ? strA : strB;
+                result.innerHTML = str.value[2];
+            }
+            buttons[2].onclick = function () {
+                result.innerHTML = strA.value + strB.value;
+            }
+            buttons[3].onclick = function () {
+                result.innerHTML = strA.value.indexOf(strB.value);
+            }
+            buttons[4].onclick = function () {
+                result.innerHTML = strB.value.lastIndexOf(strA.value);
+            }
+            buttons[5].onclick = function () {
+                result.innerHTML = selInput().value.slice(numA.value, numB.value);
+            }
+            buttons[6].onclick = function () {
+                result.innerHTML = selInput().rows;
+            }
+            buttons[7].onclick = function () {
+                result.innerHTML = selInput().value.substr(numA, numB);
+            }
+            buttons[8].onclick = function () {
+                var input = selInput();
+                input.value = input.value.toUpperCase();
+            }
+            buttons[9].onclick = function () {
+                var input = selInput();
+                input.value = input.value.toLowerCase();
+            }
+            buttons[10].onclick = function () {
+                var input = selInput();
+                input.value = replaceAll(input.value, ' ', '');
+            }
+            buttons[11].onclick = function () {
+                var input = selInput();
+                var oth = radioA.checked ? strB : strA;
+                input.value = replaceAll(input.value, 'a', oth.value);
+            }
+        </script>
+    </body>
+
+</html>

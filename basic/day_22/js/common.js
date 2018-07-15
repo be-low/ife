@@ -1,11 +1,13 @@
+//module "common"
 function isNum(num) {
-    if (num != "" && !isNaN(num)) {
+    if (num !== "" && !isNaN(num)) {
         return true;
     } else {
         console.log(num + " not a num");
         return false;
     }
 }
+
 //num, bit 为 String
 //返回将 num 四舍五入小数点后 bit 位的 String
 function approximate(num, bit) {
@@ -25,8 +27,12 @@ function approximate(num, bit) {
 }
 
 function replaceAll(str, rep, repTo) {
-    while (str.indexOf(rep) != -1) {
+    while (str.indexOf(rep) !== -1) {
         str = str.replace(rep, repTo);
     }
     return str;
 }
+
+export {
+    isNum, approximate, replaceAll
+};

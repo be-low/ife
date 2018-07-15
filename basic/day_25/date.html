@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <link rel="stylesheet" href="../../style/bootstrap.min.css">
+        <meta charset="UTF-8">
+        <title>Date</title>
+    </head>
+
+    <body>
+        <main class="container  mt-5">
+            <div id="date" class="">当前时间</div>
+            <div id="date2" class="">当前时间</div>
+        </main>
+        <script src="./js/dateConvert.js"></script>
+        <script>
+            var content = document.getElementById("date");
+            setInterval(function () {
+                var date = new Date();
+                content.innerHTML = dateFormat(date);
+            }, 1000);
+            var content2 = document.getElementById("date2");
+            setInterval(function () {
+                var date = new Date();
+                content2.innerHTML = dateFormat2(date);
+            }, 1000);
+            setInterval(function () {}, 1000);
+        </script>
+    </body>
+
+</html>

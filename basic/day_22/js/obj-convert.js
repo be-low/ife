@@ -30,8 +30,11 @@ function convertToArray(obj) {
     return arr;
 }
 
+console.log("对象转数组");
+
+console.log(scoreObject);
 console.log(convertToArray(scoreObject));
-console.log();
+
 var menuArr = [
     [1, "Area1", -1],
     [2, "Area2", -1],
@@ -73,5 +76,6 @@ function Menu(arr) {
     }
 }
 
-
+console.log("数组转对象");
+console.log(menuArr);
 console.log(new Menu(menuArr));

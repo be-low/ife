@@ -10,41 +10,22 @@
     </head>
     <main class="container d-flex justify-content-center">
         <div class="mt-5">
-            <div class="d-flex justify-content-end">
-                <select id="region-select">
-                    <option>华东</option>
-                    <option>华南</option>
-                    <option>华北</option>
-                </select>
+            <div id="select-group" class="d-flex justify-content-end">
+                <select id="region-select"> </select>
+                <select id="product-select"> </select>
             </div>
             <div id="table-wrapper">
                 <table class="table">
-                    <th>
-                        <tr>
-                            <td>商品</td>
-                            <td>地区</td>
-                            <td>1月</td>
-                            <td>2月</td>
-                            <td>3月</td>
-                            <td>4月</td>
-                            <td>5月</td>
-                            <td>6月</td>
-                            <td>7月</td>
-                            <td>8月</td>
-                            <td>9月</td>
-                            <td>10月</td>
-                            <td>11月</td>
-                            <td>12月</td>
-                        </tr>
-                    </th>
+                    <thead id="data-head"> </thead>
                     <tbody id="data-content"></tbody>
+                    <tfoot></tfoot>
                 </table>
             </div>
         </div>
     </main>
 
     <body>
-        <script src="./js/ife31data.js"></script>
+        <script src="./js/form.js"></script>
         <script src="./js/salesman.js"></script>
     </body>
 

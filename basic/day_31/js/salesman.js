@@ -1,15 +1,33 @@
-var regionSel = document.getElementById("region-select");
-var tableBody = document.getElementById("data-content");
+let tableBody = document.getElementById("data-content");
+let selGroup = document.getElementById("select-group");
+let select = new Select();
 
 regionSel.onchange = function () {
     let region = regionSel.value;
-    dataRender(filtData(region));
 }
 
-function filtData(region) {
-    return sourceData.filter(elem =>
-        elem.region === region
-    );
+selGroup.onchange = function () {
+    select.region = regionSel.value;
+    select.product = productSel.value;
+    dataRender(filtData())
+}
+
+function Select(arr) {
+    if (arr != undefined) {
+        this.region = arr[0];
+        this.product = arr[1];
+    }
+}
+
+function filtData() {
+    return sourceData.filter(elem => {
+        let result = true;
+        for (const key in select) {
+            if (select[key] != undefined)
+                result = result && select[key] === elem[key];
+        }
+        return result;
+    });
 }
 
 function dataRender(data) {

@@ -36,6 +36,13 @@ let sourceData = [{
     sale: [10, 40, 10, 6, 5, 6, 8, 6, 6, 6, 7, 26]
 }];
 
+function DomNode(tag, text, value, type) {
+    this.tag = tag;
+    this.text = text;
+    this.value = value;
+    this.type = type;
+}
+
 function getAttrsArray(objectArr, attrName) {
     let arrTemp = [];
     objectArr.map(elem => {
@@ -48,40 +55,8 @@ function getAttrsArray(objectArr, attrName) {
     return arrTemp;
 }
 
-function createElements(tag, innerHTMLs, attributes) {
-    let elems = [];
-    for (const item of innerHTMLs) {
-        elems.push(createElement(tag, item, attributes));
-    }
-    return elems;
-}
 
-function createElement(tag, innerHTML, attributes) {
-    let elem = document.createElement(tag);
-    elem.innerHTML = innerHTML;
-    elem = addAttribute(elem, attributes);
-    return elem;
-}
-
-function addAttribute(elem, attributes) {
-    if (typeof attributes == 'object') {
-        for (const attr in attributes) {
-            elem[attr] = attributes[attr];
-        }
-    }
-    return elem;
-
-}
-
-function appendChilds(parent, elems) {
-    for (let elem of elems) {
-        parent.appendChild(elem);
-    }
-}
-//生成选项  这生成好麻烦，手写HTML
-
-var regionSel = document.getElementById("region-select");
-var productSel = document.getElementById("product-select");
-var dataHeadSel = document.getElementById("data-head");
-
-appendChilds(dataHeadSel, createElements())
+let regionNames = getAttrsArray(sourceData, 'region');
+let productNames = getAttrsArray(sourceData, 'product');
+let regions = regionNames.map(elem => new DomNode('input', elem, elem, 'checkbox'));
+console.log(regions);

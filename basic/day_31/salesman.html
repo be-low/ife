@@ -10,9 +10,21 @@
     </head>
     <main class="container d-flex justify-content-center">
         <div class="mt-5">
-            <div id="select-group" class="d-flex justify-content-end">
-                <select id="region-select"> </select>
-                <select id="product-select"> </select>
+            <div id="select-group" class="d-flex">
+                <div id="region-select" class="">
+                    <label>地区：</label>
+                    <button class="btn btn-primary" value="<button>全选</button>">华南</button>
+                    <button class="btn btn-primary" value="华南">华南</button>
+                    <button class="btn btn-primary" value="华南">华南</button>
+                    <button class="btn btn-primary" value="full">全选</button>
+                </div>
+                <div id="product-select" class="ml-4">
+                    <label>产品：</label>
+                    <button class="btn btn-primary" value="手机">手机</button>
+                    <button class="btn btn-primary" value="笔记本">笔记本</button>
+                    <button class="btn btn-primary" value="智能音箱">智能音箱</button>
+                    <button class="btn btn-primary" value="full">全选</button>
+                </div>
             </div>
             <div id="table-wrapper">
                 <table class="table">

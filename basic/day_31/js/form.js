@@ -80,8 +80,9 @@ function appendChilds(parent, elems) {
 }
 //生成选项  这生成好麻烦，手写HTML
 
+const head = ["商品", "地区", "1 月", "2 月", "3 月", "4 月", "5 月", "6 月", "7 月", "8 月", "9 月", "10 月", "11 月", "12 月"];
 var regionSel = document.getElementById("region-select");
 var productSel = document.getElementById("product-select");
 var dataHeadSel = document.getElementById("data-head");
 
-appendChilds(dataHeadSel, createElements())
+appendChilds(dataHeadSel, createElements('td', head));

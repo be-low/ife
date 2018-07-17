@@ -90,13 +90,15 @@ function filterData() {
 
 function dataRender() {
     let data = filterData();
-    let templates = generateTemplate(data.length);
+    let templates = generateTemplate(data);
     let renderStr = templates.reduce((accu, elem, index) =>
         accu + templateHandle(elem, data[index]), '');
+    if (renderStr === 'undefined') renderStr = '';
     tableBody.innerHTML = renderStr;
 }
 
-function generateTemplate(size) {
+function generateTemplate(data) {
+    let size = data.length || 0;
     let regionNum = selectObj.region.size || 0,
         productNum = selectObj.product.size || 0,
         templates = new Array(size || 0);
@@ -104,29 +106,43 @@ function generateTemplate(size) {
     if (productNum === 1) {
         templates = templates.map((elem, index) => {
             if (index == 0)
-                return '<tr><td rowspan="0">\&product</td><td>\&region</td>\&sale<tr>';
+                return '<tr><td rowspan="0">\&product</td><td>\&region</td>\&sale</tr>';
             else
-                return '<tr><td>\&region</td>\&sale<tr>';
+                return '<tr><td>\&region</td>\&sale</tr>';
         });
     } else if (regionNum === 1) {
         templates = templates.map((elem, index) => {
             if (index === 0)
-                return '<tr><td rowspan="0">\&region</td><td>\&product</td>\&sale<tr>';
+                return '<tr><td rowspan="0">\&region</td><td>\&product</td>\&sale</tr>';
             else
-                return '<tr><td>\&product</td>\&sale<tr>';
+                return '<tr><td>\&product</td>\&sale</tr>';
         });
     } else {
         //这里大概很复杂
-
+        let templateTemp = '<tr><td rowspan="\&num">\&product</td><td>\&region</td>\&sale</tr>';
+        let index = 0,
+            num = 1;
+        for (let i = 1; i < size; ++i) {
+            let node = data[i];
+            if (node.product === data[index].product) {
+                num++;
+                templates[i] = '<tr><td>\&region</td>\&sale</tr>';
+            } else {
+                templates[index] = templateTemp.replace('&num', num);
+                num = 1;
+                index = i;
+            }
+        }
+        templates[index] = templateTemp.replace('&num', num);
     }
     return templates;
 }
 
 function templateHandle(template, obj) {
     if (obj == undefined) return;
-    template = template.replace('&product', obj.product)
+    let str = template.replace('&product', obj.product)
         .replace('&region', obj.region)
         .replace('&sale', obj.sale.reduce((accu, elem) =>
             accu + '<td>' + elem + '</td>', ''));
-    return template;
+    return str;
 }

@@ -80,9 +80,32 @@ function appendChilds(parent, elems) {
 }
 //生成选项  这生成好麻烦，手写HTML
 
-const head = ["商品", "地区", "1 月", "2 月", "3 月", "4 月", "5 月", "6 月", "7 月", "8 月", "9 月", "10 月", "11 月", "12 月"];
+const headData = ["商品", "地区", "1 月", "2 月", "3 月", "4 月", "5 月", "6 月", "7 月", "8 月", "9 月", "10 月", "11 月", "12 月"];
 var regionSel = document.getElementById("region-select");
 var productSel = document.getElementById("product-select");
-var dataHeadSel = document.getElementById("data-head");
+var tableHead = document.getElementById("data-head");
 
-appendChilds(dataHeadSel, createElements('td', head));
+appendChilds(tableHead, createElements('td', headData));
+
+function updateTableHead() {
+    updateHeadData();
+    let nodes = tableHead.children;
+    for (let i = 0; i < nodes.length; ++i) {
+        if (nodes[i].innerHTML !== headData[i]) {
+            nodes[i].innerHTML = headData[i];
+        }
+    }
+}
+
+function updateHeadData() {
+    let isProductFirst = true;
+    if (selectObj.product.size > 1 && selectObj.region.size == 1)
+        isProductFirst = false;
+    if (isProductFirst) {
+        headData[0] = '商品';
+        headData[1] = '地区';
+    } else {
+        headData[0] = '地区';
+        headData[1] = '商品';
+    }
+}

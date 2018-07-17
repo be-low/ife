@@ -15,6 +15,7 @@ regionSel.onclick = function (e) {
 productSel.onclick = function (e) {
     changeStyle(productSel, e.target);
     updateSelectObj(productSel, 'product');
+    updateTableHead();
     dataRender();
 }
 
@@ -76,7 +77,7 @@ function updateSelectObj(parent, key) {
 }
 
 
-function filtData() {
+function filterData() {
     return sourceData.filter(elem => {
         let result = true;
         for (const key in selectObj) {
@@ -88,9 +89,44 @@ function filtData() {
 }
 
 function dataRender() {
-    let data = filtData();
-    let renderStr = data.reduce((accu, val, index) =>
-        accu + '<tr><td>' + val.product + '</td><td>' + val.region + '</td> ' + val.sale.reduce((accu_, val_) =>
-            accu_ + '<td>' + val_ + '</td>', '') + '</tr>', '');
+    let data = filterData();
+    let templates = generateTemplate(data.length);
+    let renderStr = templates.reduce((accu, elem, index) =>
+        accu + templateHandle(elem, data[index]), '');
     tableBody.innerHTML = renderStr;
+}
+
+function generateTemplate(size) {
+    let regionNum = selectObj.region.size || 0,
+        productNum = selectObj.product.size || 0,
+        templates = new Array(size || 0);
+    templates.fill('');
+    if (productNum === 1) {
+        templates = templates.map((elem, index) => {
+            if (index == 0)
+                return '<tr><td rowspan="0">\&product</td><td>\&region</td>\&sale<tr>';
+            else
+                return '<tr><td>\&region</td>\&sale<tr>';
+        });
+    } else if (regionNum === 1) {
+        templates = templates.map((elem, index) => {
+            if (index === 0)
+                return '<tr><td rowspan="0">\&region</td><td>\&product</td>\&sale<tr>';
+            else
+                return '<tr><td>\&product</td>\&sale<tr>';
+        });
+    } else {
+        //这里大概很复杂
+
+    }
+    return templates;
+}
+
+function templateHandle(template, obj) {
+    if (obj == undefined) return;
+    template = template.replace('&product', obj.product)
+        .replace('&region', obj.region)
+        .replace('&sale', obj.sale.reduce((accu, elem) =>
+            accu + '<td>' + elem + '</td>', ''));
+    return template;
 }

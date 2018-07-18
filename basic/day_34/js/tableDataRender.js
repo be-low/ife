@@ -1,28 +1,32 @@
-let tableBody = document.getElementById("dataSource-barChart");
-
+let tableBody = document.getElementById("data-content");
 const ac = 'btn-success';
 let selectObj = {
     region: new Set(),
     product: new Set()
 };
+//init
+updateSelectObj(productSel, 'product');
+updateSelectObj(regionSel, 'region');
+dataRender();
 
 regionSel.onclick = function (e) {
     changeStyle(regionSel, e.target);
     updateSelectObj(regionSel, 'region');
     dataRender();
-}
+    updateChart();
+};
 
 productSel.onclick = function (e) {
     changeStyle(productSel, e.target);
     updateSelectObj(productSel, 'product');
     updateTableHead();
     dataRender();
-}
+    updateChart();
+};
 
-//init
-updateSelectObj(productSel, 'product');
-updateSelectObj(regionSel, 'region');
-dataRender();
+function updateChart() {
+    lineChart.drawHeapLineChart(filterData().map(elem => elem.sale));
+}
 
 function changeStyle(parent, target) {
     let nodes = parent.children;
@@ -76,12 +80,11 @@ function updateSelectObj(parent, key) {
     }
 }
 
-
 function filterData() {
     return sourceData.filter(elem => {
         let result = true;
         for (const key in selectObj) {
-            if (selectObj[key] != undefined)
+            if (selectObj[key] !== undefined)
                 result = result && selectObj[key].has(elem[key]);
         }
         return result;
@@ -105,7 +108,7 @@ function generateTemplate(data) {
     templates.fill('');
     if (productNum === 1) {
         templates = templates.map((elem, index) => {
-            if (index == 0)
+            if (index === 0)
                 return '<tr><td rowspan="0">\&product</td><td>\&region</td>\&sale</tr>';
             else
                 return '<tr><td>\&region</td>\&sale</tr>';
@@ -139,10 +142,9 @@ function generateTemplate(data) {
 }
 
 function templateHandle(template, obj) {
-    if (obj == undefined) return;
-    let str = template.replace('&product', obj.product)
+    if (obj === undefined) return;
+    return template.replace('&product', obj.product)
         .replace('&region', obj.region)
         .replace('&sale', obj.sale.reduce((accu, elem) =>
             accu + '<td>' + elem + '</td>', ''));
-    return str;
 }

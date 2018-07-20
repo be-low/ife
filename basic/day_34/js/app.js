@@ -14,7 +14,7 @@ function removeChilds(parent) {
     }
 }
 
-tableBody.onmouseover = function (e) {
+tBody.onmouseover = function (e) {
     const tar = e.target;
     tar.classList.add('active');
     const data = getData(tar);
@@ -22,7 +22,7 @@ tableBody.onmouseover = function (e) {
     lineChart.drawLineChart(data);
 };
 
-tableBody.onmouseout = function (e) {
+tBody.onmouseout = function (e) {
     const tar = e.target;
     tar.classList.remove('active');
     removeChilds(barChart);

@@ -19,7 +19,7 @@ regionSel.onclick = function (e) {
 productSel.onclick = function (e) {
     changeStyle(productSel, e.target);
     updateSelectObj(productSel, 'product');
-    updateTableHead();
+    updateTHead();
     dataRender();
     updateChart();
 };

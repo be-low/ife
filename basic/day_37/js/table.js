@@ -27,7 +27,8 @@ class Select {
 function syncDom() {
   selectObj = new Select(localStorage.getItem('select'));
   for (let i in selectObj) {
-    let e = selectObj[i], b = selectDom[i];
+    let e = selectObj[i],
+      b = selectDom[i];
     let children = b.children;
     for (let j of children) {
       if (e.has(j.value)) {
@@ -81,8 +82,9 @@ function updateStyle(target) {
   }
 }
 
+
 function dataFilter() {
-  return sourceData.filter(elem => {
+  return sourceData_.filter(elem => {
     let result = true;
     for (const key in selectObj) {
       if (selectObj[key] !== undefined)
@@ -92,24 +94,24 @@ function dataFilter() {
   });
 }
 
+let cData = null;
+
 function updateTBody() {
-  let data = dataFilter();
-  if (data.length > 0) {
-    let templates = generateTemplate(data);
+  cData = dataFilter();
+  if (cData.length > 0) {
+    let templates = generateTemplate(cData);
     tBody.innerHTML = templates.reduce((accu, elem, index) =>
-                                           accu + elem.replace('&product',
-                                                               data[index].product).
-                                                       replace('&region',
-                                                               data[index].region).
-                                                       replace('&sale',
-                                                               data[index].sale.reduce(
-                                                                   (
-                                                                       accu2,
-                                                                       elem) => accu2 +
-                                                                       '<td contenteditable="true">' +
-                                                                       elem +
-                                                                       '</td>',
-                                                                   '')), '');
+      accu + elem.replace('&product',
+        cData[index].product).replace('&region',
+        cData[index].region).replace('&sale',
+        cData[index].sale.reduce(
+          (
+            accu2,
+            elem) => accu2 +
+          '<td contenteditable="true">' +
+          elem +
+          '</td>',
+          '')), '');
   } else
     tBody.innerHTML = '';
 }
@@ -117,12 +119,12 @@ function updateTBody() {
 function generateTemplate(data) {
   let size = data.length || 0;
   let regionNum = selectObj.region.size || 0,
-      productNum = selectObj.product.size || 0,
-      templates = new Array(size || 0);
-  const tempPR = '<tr><td contenteditable="true" rowspan="0">\&product</td><td contenteditable="true">\&region</td>\&sale</tr>',
-      tempR = '<tr><td contenteditable="true">\&region</td>\&sale</tr>',
-      tempRP = '<tr><td contenteditable="true" rowspan="0">\&region</td><td contenteditable="true">\&product</td>\&sale</tr>',
-      tempP = '<tr><td contenteditable="true">\&product</td>\&sale</tr>';
+    productNum = selectObj.product.size || 0,
+    templates = new Array(size || 0);
+  const tempPR = '<tr><th contenteditable="true" rowspan="0">\&product</th><th contenteditable="true">\&region</th>\&sale</tr>',
+    tempR = '<tr><th contenteditable="true">\&region</th>\&sale</tr>',
+    tempRP = '<tr><th contenteditable="true" rowspan="0">\&region</th><th contenteditable="true">\&product</th>\&sale</tr>',
+    tempP = '<tr><th contenteditable="true">\&product</th>\&sale</tr>';
   templates.fill('');
   if (productNum === 1) {
     templates = templates.map((elem, index) => {
@@ -140,9 +142,9 @@ function generateTemplate(data) {
     });
   } else {
     //这里大概很复杂
-    let templateTemp = '<tr><td contenteditable="true" rowspan="\&num">\&product</td><td contenteditable="true">\&region</td>\&sale</tr>';
+    let templateTemp = '<tr><th contenteditable="true" rowspan="\&num">\&product</th><th contenteditable="true">\&region</th>\&sale</tr>';
     let index = 0,
-        num = 1;
+      num = 1;
     for (let i = 1; i < size; ++i) {
       let node = data[i];
       if (node.product === data[index].product) {

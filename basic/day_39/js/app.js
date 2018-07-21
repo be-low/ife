@@ -23,6 +23,9 @@ const tHeadData = [
         product: produceSel,
     },
     selectGroup = document.getElementById('select-group');
+const barChartDom = document.getElementById('bar-chart'),
+    lineChartDom = document.getElementById('line-chart');
+const lineChart = new LineChart(lineChartDom);
 const ac = 'btn-success';
 let selectObj = new Select();
 let sourceData_ = JSON.parse(localStorage.getItem('sourceData')) || sourceData;
@@ -30,16 +33,43 @@ createElements('th', tHeadData).forEach((e) => tHead.appendChild(e));
 
 selectGroup.oninput = function (e) {
     syncObj(e.target);
-    location.hash = selectObj.toJson();
+    history.pushState(selectObj.toJson(), '',
+        location.href.split('#')[0] + '#' + selectObj.toJson());
+    flash();
 };
 window.addEventListener('hashchange', resume);
-window.onload = resume;
+window.onload = function (e) {
+    resume(location.hash.substr(1));
+};
+window.onpopstate = function (e) {
+    console.log(decodeURI(e.state));
+    resume(e.state);
+};
+tBody.onmouseover = function (e) {
+    const data = getData(e.target);
+    drawBarChart(barChartDom, data);
+    lineChart.drawLineChart(data);
+};
+tBody.onmouseout = function (e) {
+    for (let i of barChartDom.children) {
+        barChartDom.removeChild(i);
+    }
+    lineChart.drawHeapLineChart(dataFilter().map(e => e.sale));
+};
 
-function resume() {
-    selectObj = new Select(decodeURI(location.hash.substr(1)));
+function flash() {
     syncDom();
     updateTHead();
     updateTBody();
+    lineChart.drawHeapLineChart(dataFilter().map(e => e.sale));
+}
+
+function resume(state) {
+    let state_ = decodeURI(state);
+    if (state_) {
+        selectObj = new Select(state_);
+        flash();
+    }
 }
 
 tBody.onclick = function (e) {
@@ -96,7 +126,7 @@ tBody.onclick = function (e) {
         t.removeChild(btns);
         t.innerText = resetText;
     }
-}
+};
 
 function getData(target) {
     const row = target.parentNode.childNodes;
@@ -113,15 +143,6 @@ function updateData(data, index) {
     localStorage.setItem('sourceData', JSON.stringify(sourceData_));
 }
 
-function find(data, row) {
-    for (let i = 0; i < data.length; ++i) {
-        let d = data[i];
-        if (d.product === row.product && d.region == row.region) {
-            return i;
-        }
-    }
-    return -1;
-}
 
 function isNum(numStr) {
     if (typeof numStr === 'number' && !isNaN(numStr)) return true;

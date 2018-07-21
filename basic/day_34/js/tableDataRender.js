@@ -1,4 +1,4 @@
-let tableBody = document.getElementById("data-content");
+let tBody = document.getElementById("data-content");
 const ac = 'btn-success';
 let selectObj = {
     region: new Set(),
@@ -97,7 +97,7 @@ function dataRender() {
     let renderStr = templates.reduce((accu, elem, index) =>
         accu + templateHandle(elem, data[index]), '');
     if (renderStr === 'undefined') renderStr = '';
-    tableBody.innerHTML = renderStr;
+    tBody.innerHTML = renderStr;
 }
 
 function generateTemplate(data) {

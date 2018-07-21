@@ -46,13 +46,13 @@ function appendChilds(parent, elems) {
 const headData = ["商品", "地区", "1 月", "2 月", "3 月", "4 月", "5 月", "6 月", "7 月", "8 月", "9 月", "10 月", "11 月", "12 月"];
 const regionSel = document.getElementById("region-select");
 const productSel = document.getElementById("product-select");
-const tableHead = document.getElementById("data-head");
+const tHead = document.getElementById("data-head");
 
-appendChilds(tableHead, createElements('td', headData));
+appendChilds(tHead, createElements('td', headData));
 
 function updateTableHead() {
     updateHeadData();
-    let nodes = tableHead.children;
+    let nodes = tHead.children;
     for (let i = 0; i < nodes.length; ++i) {
         if (nodes[i].innerHTML !== headData[i]) {
             nodes[i].innerHTML = headData[i];

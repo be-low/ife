@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="./css/semantic.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Salesman</title>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/semantic-ui_2.2.4_semantic.min.js"></script>
+</head>
+
+<body>
+<main class="container">
+    <div class="mt-5">
+        <div id="select-group" class="ui two column doubling stackable grid container">
+            <div id="region-select" class="column">
+                <label class="" style="margin: 0;line-height: 38px;">地区：</label>
+                <div class="ui checkbox">
+                    <input type="checkbox" class="ui checkbox select-all" value="0" title="全选">
+                    <label for="">全选</label>
+                </div>
+                <div class="ui checkbox">
+                    <input type="checkbox" class="ui checkbox select-opt" value="华东" title="华东">
+                    <label for="">华东</label>
+                </div>
+                <div class="ui checkbox">
+                    <input type="checkbox" class="ui checkbox select-opt" value="华南" title="华南">
+                    <label for="">华南</label>
+                </div>
+                <div class="ui checkbox">
+                    <input type="checkbox" class="ui checkbox select-opt" value="华北" title="华北">
+                    <label for="">华北</label>
+                </div>
+            </div>
+            <div id="product-select" class="column">
+                <label class="" style="margin: 0;line-height: 38px;">产品：</label>
+                <div class="ui checkbox">
+                    <input type="checkbox" class="ui checkbox select-all" value="0" title="全选">
+                    <label for="">全选</label>
+                </div>
+                <div class="ui checkbox">
+                    <input type="checkbox" class="ui checkbox select-opt" value="手机" title="手机">
+                    <label for="">手机</label>
+                </div>
+                <div class="ui checkbox">
+                    <input type="checkbox" class="ui checkbox select-opt" value="笔记本" title="笔记本">
+                    <label for="">笔记本</label>
+                </div>
+                <div class="ui checkbox">
+                    <input type="checkbox" class="ui checkbox select-opt" value="智能音箱" title="智能音箱">
+                    <label for="">智能音箱</label>
+                </div>
+            </div>
+        </div>
+        <div id="ui ">
+            <table class="ui celled table">
+                <thead id="data-head"></thead>
+                <tbody id="data-content"></tbody>
+            </table>
+        </div>
+    </div>
+</main>
+<script src="./js/data.js"></script>
+<script src="./js/table.js"></script>
+<script src="./js/app.js"></script>
+</body>
+
+</html>

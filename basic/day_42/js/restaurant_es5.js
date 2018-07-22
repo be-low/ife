@@ -73,7 +73,7 @@ Customer.eat = function () {
 
 };
 
-function Dishes(name, cost, price) {
+function Dish(name, cost, price) {
     this.name = name;
     this.cost = cost;
     this.price = price;

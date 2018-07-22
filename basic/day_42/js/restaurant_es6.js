@@ -32,6 +32,10 @@ class Worker {
 
     work() {
     }
+
+    toString() {
+        return `${this.constructor.name}: {id: ${this.id}, name: ${this.name}, wage: ${this.wage}}`;
+    }
 }
 
 Worker.idGen = idGen();

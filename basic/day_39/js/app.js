@@ -74,57 +74,59 @@ function resume(state) {
 
 tBody.onclick = function (e) {
     const t = e.target;
-    t.id = 'input';
-    const resetText = t.innerText;
-    let btnReset = document.createElement('button'),
-        btnConfirm = document.createElement('button');
-    btnReset.innerHTML = '取消';
-    btnConfirm.innerHTML = '确定';
-    btnConfirm.classList.add('btn');
-    btnReset.classList.add('btn');
-    let btns = document.createElement('div');
-    btns.appendChild(btnConfirm);
-    btns.appendChild(btnReset);
-    btns.classList.add('btn-group');
-    btns.style.position = 'absolute';
-    t.appendChild(btns);
+    if (isNum(t.innerText)) {
+        t.id = 'edit';
+        const resetText = t.innerText;
+        let btnReset = document.createElement('button'),
+            btnConfirm = document.createElement('button');
+        btnReset.innerHTML = '取消';
+        btnConfirm.innerHTML = '确定';
+        btnConfirm.classList.add('btn');
+        btnReset.classList.add('btn');
+        let btns = document.createElement('div');
+        btns.appendChild(btnConfirm);
+        btns.appendChild(btnReset);
+        btns.classList.add('btn-group');
+        btns.style.position = 'absolute';
+        t.appendChild(btns);
 
-    btnConfirm.onclick = function () {
-        confirm();
-    };
-    btnReset.onclick = function () {
-        reset();
-    };
-    t.addEventListener('blur', confirm);
-    tBody.addEventListener('keydown', function (e) {
-        switch (e.key) {
-            case 'Escape':
-                reset();
-                t.blur();
-                break;
-            case 'Enter':
-                confirm();
-                t.blur();
-                break;
+        btnConfirm.onclick = function () {
+            confirm();
+        };
+        btnReset.onclick = function () {
+            reset();
+        };
+        t.addEventListener('blur', confirm);
+        tBody.addEventListener('keydown', function (e) {
+            switch (e.key) {
+                case 'Escape':
+                    reset();
+                    t.blur();
+                    break;
+                case 'Enter':
+                    confirm();
+                    t.blur();
+                    break;
+            }
+        });
+
+        function confirm() {
+            t.removeChild(btns);
+            const text = t.innerText;
+            if (!isNum(text))
+                alert(text + ' is not a number!');
+            else {
+                const rIndex = t.parentNode.rowIndex;
+                const data = getData(t);
+                updateData(data, rIndex);
+            }
+            t.id = '';
         }
-    });
 
-    function confirm() {
-        t.removeChild(btns);
-        const text = t.innerText;
-        if (!isNum(text))
-            alert(text + ' is not a number!');
-        else {
-            const rIndex = t.parentNode.rowIndex;
-            const data = getData(t);
-            updateData(data, rIndex);
+        function reset() {
+            t.removeChild(btns);
+            t.innerText = resetText;
         }
-        t.id = '';
-    }
-
-    function reset() {
-        t.removeChild(btns);
-        t.innerText = resetText;
     }
 };
 

@@ -86,7 +86,7 @@ function updateTBody() {
                 (
                     accu2,
                     elem) => accu2 +
-                    '<td contenteditable="true">' +
+                    '<td contenteditable="true" class="editable">' +
                     elem +
                     '</td>',
                 '')), '');
@@ -99,10 +99,10 @@ function generateTemplate(data) {
     let regionNum = selectObj.region.size || 0,
         productNum = selectObj.product.size || 0,
         templates = new Array(size || 0);
-    const tempPR = '<tr><th contenteditable="true" rowspan="0">\&product</th><th contenteditable="true">\&region</th>\&sale</tr>',
-        tempR = '<tr><th contenteditable="true">\&region</th>\&sale</tr>',
-        tempRP = '<tr><th contenteditable="true" rowspan="0">\&region</th><th contenteditable="true">\&product</th>\&sale</tr>',
-        tempP = '<tr><th contenteditable="true">\&product</th>\&sale</tr>';
+    const tempPR = '<tr><th rowspan="0">\&product</th><th>\&region</th>\&sale</tr>',
+        tempR = '<tr><th>\&region</th>\&sale</tr>',
+        tempRP = '<tr><th rowspan="0">\&region</th><th>\&product</th>\&sale</tr>',
+        tempP = '<tr><th>\&product</th>\&sale</tr>';
     templates.fill('');
     if (productNum === 1) {
         templates = templates.map((elem, index) => {
@@ -120,7 +120,7 @@ function generateTemplate(data) {
         });
     } else {
         //这里大概很复杂
-        let templateTemp = '<tr><th contenteditable="true" rowspan="\&num">\&product</th><th contenteditable="true">\&region</th>\&sale</tr>';
+        let templateTemp = '<tr><th rowspan="\&num">\&product</th><th>\&region</th>\&sale</tr>';
         let index = 0,
             num = 1;
         for (let i = 1; i < size; ++i) {

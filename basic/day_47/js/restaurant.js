@@ -81,12 +81,55 @@ class Waiter extends Worker {
     }
 
 
-    getOrder(orders) {
-        return orders;
+    getOrder() {
+        return new Promise(resolve => {
+            if (waiterDom.classList.contains('right')) {
+                resolve();
+            } else {
+                setTimeout(() => {
+                    waiterDom.classList.add('right');
+                    waiterDom.classList.add('floated');
+                    resolve();
+                }, 500);
+            }
+        })
+    }
+
+    giveOrder() {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                waiterDom.classList.remove('right');
+                waiterDom.classList.remove('floated');
+                resolve();
+            }, 500);
+        })
     }
 
     serving(name) {
-        console.log(`上: ` + name);
+        return new Promise(resolve => {
+            if (waiterDom.classList.contains('right')) {
+                Promise.resolve().then(() => {
+                    setTimeout(() => {
+                        waiterDom.classList.remove('right');
+                        waiterDom.classList.remove('float');
+                    }, 500);
+                }).then(() => {
+                    setTimeout(() => {
+                        waiterDom.classList.add('right');
+                        waiterDom.classList.add('float');
+                        console.log(`上: ` + name + ' 菜');
+                        resolve();
+                    }, 500);
+                });
+            } else {
+                setTimeout(() => {
+                    waiterDom.classList.add('right');
+                    waiterDom.classList.add('float');
+                    console.log(`上: ` + name + ' 菜');
+                    resolve();
+                }, 500);
+            }
+        });
     }
 }
 
@@ -96,22 +139,25 @@ class Cook extends Worker {
     }
 
     work(orders) {
-        let tasks = orders.map(e =>
-            this.cookDish.bind(null, e)
-        );
-        return tasks.reduce((promise, task) => {
-            return promise.then(task).then(dishName => {
-                waiter.serving(dishName);
-                return promise;
-            });
-        }, Promise.resolve());
+        function updateCookList(dish) {
+            let index = orders.findIndex((e) => dish === e);
+            orders.splice(index, index + 1);
+            cookListDom.innerHTML = orders.map(e => e.name).join('<-');
+        }
+
+        let promise = Promise.resolve();
+        for (let i = 0; i < orders; i++) {
+            let dish = orders;
+            promise = promise.then(this.cookDish(dish)).then(waiter.serving(dish.name));
+        }
     }
+
 
     cookDish(dish) {
         return new Promise(resolve => {
             console.log(`cook cooks  ${dish.name}`);
             setTimeout(() =>
-                resolve(dish.name), dish.time * 1000)
+                resolve(dish), dish.time * 1000)
         });
     }
 }
@@ -123,6 +169,7 @@ class Customer extends Person {
 
     order(menu) {
         return new Promise(resolve => {
+            seatDom.querySelector('#seat-status').innerHTML = "占用";
             console.log(`customer ${this.id} 开始点菜`);
             const cnt = menu.length, selCnt = parseInt((cnt - 1) * Math.random()) + 1;
             let orderIndex = menu.map((e, i) => i);
@@ -146,6 +193,7 @@ class Customer extends Person {
             console.log(`customer ${this.id} 吃饭`);
             setTimeout(() => {
                 console.log(`customer ${this.id} 吃完溜了`);
+                seatDom.querySelector('#seat-status').innerHTML = "free";
                 resolve();
             }, 1000);
         })

@@ -11,18 +11,21 @@ const getCook = singleton(() =>
 const getWaiter = singleton(() =>
     new Waiter('waiter', 5000));
 
+const cookDom = document.getElementById('cook'),
+    waiterDom = document.getElementById('waiter'),
+    seatDom = document.getElementById('seat');
+
 const customers = [],
     restaurant = getRestaurant(),
     cook = getCook(),
     waiter = getWaiter(),
     menu = [
-        new Dish('fish', 10, 20, 3),
-        new Dish('apple', 20, 35, 5),
-        new Dish('chicken', 30, 50, 8),
-        new Dish('cookie', 15, 25, 6)
+        new Dish('fish', 10, 20, 1),
+        new Dish('apple', 20, 35, 1),
+        new Dish('chicken', 30, 50, 2),
+        new Dish('cookie', 15, 25, 1)
     ];
 
-waiter.setCook(cook);
 
 function printTime() {
     console.log(new Date().toTimeString());
@@ -40,7 +43,14 @@ setInterval(function () {
         let seat = restaurant.getSeat();
         console.log(`顾客 ${customer.id} 就坐`);
 
-        customer.order(menu)
-
+        customer.order(menu).then((orders) => {
+            return waiter.getOrder(orders);
+        }).then((orders) => {
+            cook.work(orders).then(() => {
+                customer.eat().then(() =>
+                    restaurant.freeSeat(seat)
+                )
+            })
+        });
     }
 }, 1000);

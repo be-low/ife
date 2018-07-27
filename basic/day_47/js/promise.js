@@ -2,6 +2,7 @@ function getURL(URL) {
     return new Promise(((resolve, reject) => {
         let req = new XMLHttpRequest();
         req.open('GET', URL, true);
+        req.setRequestHeader('Accept', 'application/vnd.github.mercy-preview+json');
         req.onload = function () {
             if (req.status === 200) {
                 resolve(req.responseText)
@@ -11,17 +12,18 @@ function getURL(URL) {
         };
         req.onerror = function () {
             reject(new Error(req.statusText));
-        }
+        };
+        req.send();
     }));
 }
 
 
 let request = {
     comment: function getComment() {
-        return getURL('http://azu.github.io/promises-book/json/comment.json').then(JSON.parse);
+        return getURL('https://api.github.com/search/topics?q=cpp').then(JSON.parse);
     },
     people: function getPeople() {
-        return getURL('http://azu.github.io/promises-book/json/people.json').then(JSON.parse);
+        return getURL('https://api.github.com/search/topics?q=java').then(JSON.parse);
     }
 };
 
@@ -42,3 +44,4 @@ main()
     .then(value => console.log(value))
     .catch(error => console.log(error)
     );
+// request.comment().then(text => console.log(text));

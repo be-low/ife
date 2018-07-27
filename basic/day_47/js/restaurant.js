@@ -80,17 +80,9 @@ class Waiter extends Worker {
         this.cook = null;
     }
 
-    setCook(cook) {
-        this.cook = cook;
-    }
 
-    getOrder(customer) {
-        this.orders = customer.orders;
-    }
-
-    giveOrder(cook) {
-        cook.orders = this.orders;
-        this.orders = null;
+    getOrder(orders) {
+        return orders;
     }
 
     serving(name) {
@@ -103,18 +95,25 @@ class Cook extends Worker {
         super(name, wage);
     }
 
-    work() {
-        let tasks = [];
-        this.orders.forEach(dish =>
-            tasks.push(this.cookDish(dish))
+    work(orders) {
+        let tasks = orders.map(e =>
+            this.cookDish.bind(null, e)
         );
-        let promice = Promise.resolve();
-        for (let i = 0; i < tasks.length; i++) {
-            promice = promice.then(tasks[i]);
-        }
-        return promice;
+        return tasks.reduce((promise, task) => {
+            return promise.then(task).then(dishName => {
+                waiter.serving(dishName);
+                return promise;
+            });
+        }, Promise.resolve());
     }
 
+    cookDish(dish) {
+        return new Promise(resolve => {
+            console.log(`cook cooks  ${dish.name}`);
+            setTimeout(() =>
+                resolve(dish.name), dish.time * 1000)
+        });
+    }
 }
 
 class Customer extends Person {
@@ -124,6 +123,7 @@ class Customer extends Person {
 
     order(menu) {
         return new Promise(resolve => {
+            console.log(`customer ${this.id} 开始点菜`);
             const cnt = menu.length, selCnt = parseInt((cnt - 1) * Math.random()) + 1;
             let orderIndex = menu.map((e, i) => i);
             for (let i = 0; i < selCnt; i++) {
@@ -133,13 +133,22 @@ class Customer extends Person {
                 orderIndex[index] = temp;
             }
             orderIndex.splice(selCnt);
-            this.orders = menu.filter((e, i) => orderIndex.includes(i));
-            setTimeout(resolve, 3000);
+            let orders = menu.filter((e, i) => orderIndex.includes(i));
+            setTimeout(() => {
+                console.log(`customer ${this.id} order: ${orders.map(e => e.name).join()}`);
+                resolve(orders);
+            }, 3000);
         })
     }
 
     eat() {
-        console.log(`customer ${this.id} 吃饭`);
+        return new Promise(resolve => {
+            console.log(`customer ${this.id} 吃饭`);
+            setTimeout(() => {
+                console.log(`customer ${this.id} 吃完溜了`);
+                resolve();
+            }, 1000);
+        })
     }
 }
 

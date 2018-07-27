@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="../../css/semantic.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -9,7 +10,29 @@
 </head>
 
 <body>
-<h1>打开控制台看一下把</h1>
+<main class="ui container">
+    <div class="ui three column stackable grid ">
+        <div id="cook" class="four wide column">
+            <h1>cook</h1>
+            <p id="cook-status">free</p>
+        </div>
+        <div class="eight wide two column row">
+            <div id="waiter" class="eight wide column">
+                <h1>waiter</h1>
+                <p id="waiter-status">free</p>
+            </div>
+        </div>
+        <div class="four wide column right floated">
+            <h1>dining room</h1>
+            <div>
+                <div class="seat">
+                    <h2>seat1</h2>
+                    <p id="seat-status">free</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 <script src="./js/restaurant.js"></script>
 <script src="./js/app.js"></script>
 </body>

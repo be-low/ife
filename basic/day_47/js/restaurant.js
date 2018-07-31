@@ -24,7 +24,7 @@ class Restaurant {
         return this.seatsStatus.some(e => e === true);
     }
 
-    getSeat() {
+    lockSeat() {
         let index = this.seatsStatus.indexOf(true);
         this.seatsStatus[index] = false;
         return index;
@@ -81,7 +81,8 @@ class Waiter extends Worker {
     }
 
 
-    getOrder() {
+    getOrder(orders) {
+        this.orders = orders;
         return new Promise(resolve => {
             if (waiterDom.classList.contains('right')) {
                 resolve();
@@ -95,9 +96,11 @@ class Waiter extends Worker {
         })
     }
 
-    giveOrder() {
+    giveOrder(cook) {
         return new Promise(resolve => {
             setTimeout(() => {
+                cook.orders = this.orders;
+                this.orders = null;
                 waiterDom.classList.remove('right');
                 waiterDom.classList.remove('floated');
                 resolve();
@@ -105,28 +108,28 @@ class Waiter extends Worker {
         })
     }
 
-    serving(name) {
+    serving(dish) {
         return new Promise(resolve => {
+            // ->
+            function upDish() {
+                waiterDom.classList.add('right');
+                waiterDom.classList.add('floated');
+                console.log(`上: ` + dish.name + ' 菜');
+                resolve();
+            }
+
             if (waiterDom.classList.contains('right')) {
-                Promise.resolve().then(() => {
+                setTimeout(() => {
+                    // <-
+                    waiterDom.classList.remove('right');
+                    waiterDom.classList.remove('floated');
                     setTimeout(() => {
-                        waiterDom.classList.remove('right');
-                        waiterDom.classList.remove('float');
+                        upDish()
                     }, 500);
-                }).then(() => {
-                    setTimeout(() => {
-                        waiterDom.classList.add('right');
-                        waiterDom.classList.add('float');
-                        console.log(`上: ` + name + ' 菜');
-                        resolve();
-                    }, 500);
-                });
+                }, 500);
             } else {
                 setTimeout(() => {
-                    waiterDom.classList.add('right');
-                    waiterDom.classList.add('float');
-                    console.log(`上: ` + name + ' 菜');
-                    resolve();
+                    upDish()
                 }, 500);
             }
         });
@@ -138,22 +141,25 @@ class Cook extends Worker {
         super(name, wage);
     }
 
-    work(orders) {
-        function updateCookList(dish) {
-            let index = orders.findIndex((e) => dish === e);
-            orders.splice(index, index + 1);
-            cookListDom.innerHTML = orders.map(e => e.name).join('<-');
-        }
+    updateCookList(dish) {
+        let index = this.orders.findIndex((e) => dish === e);
+        this.orders.splice(index, index + 1);
+        cookListDom.innerHTML = this.orders.map(e => e.name).join('<-');
+    }
 
+    work() {
         let promise = Promise.resolve();
-        for (let i = 0; i < orders; i++) {
-            let dish = orders;
-            promise = promise.then(this.cookDish(dish)).then(waiter.serving(dish.name));
+        for (let i = 0; i < this.orders.length; ++i) {
+            let dish = this.orders[i];
+            promise = promise.then(this.cookDish.bind(this, dish)).then(waiter.serving);
         }
+        return promise;
     }
 
 
     cookDish(dish) {
+        cookStatusDom.innerHTML = "cook: " + dish.name;
+        this.updateCookList(dish);
         return new Promise(resolve => {
             console.log(`cook cooks  ${dish.name}`);
             setTimeout(() =>
@@ -169,7 +175,7 @@ class Customer extends Person {
 
     order(menu) {
         return new Promise(resolve => {
-            seatDom.querySelector('#seat-status').innerHTML = "占用";
+            seatDom.querySelector('#seat-status').innerHTML = this.name + this.id;
             console.log(`customer ${this.id} 开始点菜`);
             const cnt = menu.length, selCnt = parseInt((cnt - 1) * Math.random()) + 1;
             let orderIndex = menu.map((e, i) => i);

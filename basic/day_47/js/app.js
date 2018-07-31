@@ -13,12 +13,17 @@ const getWaiter = singleton(() =>
 
 const cookDom = document.getElementById('cook'),
     cookStatusDom = document.getElementById('cook-status'),
+    cookListDom = document.getElementById('cook-list'),
     waiterDom = document.getElementById('waiter'),
     seatDom = document.getElementById('seat'),
-    cookListDom = document.getElementById('cook-list'),
     customersDom = document.getElementById('customers-list');
 
-const customers = [],
+const customers = [
+        new Customer('J'),
+        new Customer('K'),
+        new Customer('Z')
+
+    ],
     restaurant = getRestaurant(),
     cook = getCook(),
     waiter = getWaiter(),
@@ -34,22 +39,26 @@ function printTime() {
     console.log(new Date().toTimeString());
 }
 
-setInterval(function () {
+setInterval(() => {
     setTimeout(function () {
         if (customers.length <= 3) {
-            customers.push(new Customer('customers'));
+            customers.push(new Customer('customer'));
         }
     }, Math.random() * 10000);
+}, 100);
+
+
+setInterval(function () {
     if (customers.length > 0 && restaurant.hasSeats()) {
         let customer = customers.shift();
         console.log(`顾客 ${customer.id} 等到座位了`);
-        let seat = restaurant.getSeat();
+        let seat = restaurant.lockSeat();
         console.log(`顾客 ${customer.id} 就坐`);
 
         customer.order(menu).then((orders) => {
-            waiter.getOrder().then(() => {
-                waiter.giveOrder().then(() => {
-                    cook.work(orders).then(() => {
+            waiter.getOrder(orders).then(() => {
+                waiter.giveOrder(cook).then(() => {
+                    cook.work().then(() => {
                         cookStatusDom.innerHTML = 'free';
                         customer.eat().then(() =>
                             restaurant.freeSeat(seat)
@@ -59,4 +68,4 @@ setInterval(function () {
             })
         });
     }
-}, 1000);
+}, 100);
